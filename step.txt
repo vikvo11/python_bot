@@ -3,3 +3,4 @@
 3. source venv/bin/activate
 4. pip install flask
  -> Run Flas with 0.0.0.0 IP (app.run(host='0.0.0.0',port = 5000))
+5. Install flask-sslify for HTTPS
