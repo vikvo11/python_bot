@@ -16,18 +16,18 @@ def get_updates():
     r=requests.get(url)
     write_json(r.json())
 
-def send_message(chatId=488735610,text='Please wait a few seconds'):
+def send_message(chatId,text='Please wait a few seconds'):
     url=URL+'sendMessage'
-    answer = {'chat_id': chatId, 'text': text} #словарь
+    answer = {'chat_id': chatId, 'text': text}
     print(answer)
-    #r=request.get(url,json=answer)
-    #return r.json()
+    r=request.get(url,json=answer)
+    return r.json()
 def main():
     #r=requests.get(URL+'getMe')
     #write_json(r.json())
     #print (r.json())
     #get_updates()
-    send_message()
+    send_message(chat_id)
 
 
 
