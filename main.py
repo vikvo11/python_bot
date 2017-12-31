@@ -37,7 +37,7 @@ def index():
         text=r['message']['text']
         update_id=r['message']['update_id']
         if 'bitcoin' in text:
-                send_message(chat_id,text+'- dorogoi'+str(update_id))
+            send_message(chat_id,text+'- dorogoi'+str(update_id))
 
         return r.json()
     return'<h1>Hello Bot!</h1>'
