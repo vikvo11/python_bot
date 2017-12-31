@@ -20,7 +20,7 @@ def send_message(chatId,text='Please wait a few seconds'):
     url=URL+'sendMessage'
     answer = {'chat_id': chatId, 'text': text}
     print(answer)
-    r=request.get(url,json=answer)
+    r=requests.get(url,json=answer)
     return r.json()
 def main():
     #r=requests.get(URL+'getMe')
