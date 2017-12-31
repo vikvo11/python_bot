@@ -5,6 +5,7 @@
  -> Run Flas with 0.0.0.0 IP (app.run(host='0.0.0.0',port = 5000))
 5. Install flask-sslify for HTTPS
  -> pip install flask-sslify
+6. pip install requests
 
  *** www.pythonanywhere.com
 
