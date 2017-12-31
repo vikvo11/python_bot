@@ -6,6 +6,7 @@
 5. Install flask-sslify for HTTPS
  -> pip install flask-sslify
 6. pip install requests
+7. check ->locale
 
  *** www.pythonanywhere.com
 
