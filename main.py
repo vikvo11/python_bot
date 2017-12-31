@@ -15,7 +15,7 @@ def write_json(data,filename='answer.json'):
         json.dump(data,f,indent=2,ensure_ascii=False)
 
 def get_updates():
-    url=URL+'getUpdates'
+s    url=URL+'getUpdates'
     #print(url)
     r=requests.get(url)
     write_json(r.json())
@@ -36,12 +36,9 @@ def index():
         chat_id=r['message']['chat']['id']
         text=r['message']['text']
         update_id=r['message']['update_id']
-        global last_update_id
-        if update_id !=last_update_id:
-            last_update_id=update_id
-            if 'bitcoin' in text:
+        if 'bitcoin' in text:
                 send_message(chat_id,text+'- dorogoi'+str(update_id))
-        
+
         return r.json()
     return'<h1>Hello Bot!</h1>'
 #https://api.telegram.org/bot521265983:AAFUSq8QQzLUURwmCgXeBCjhRThRvf9YVM0/setWebhook?url=https://8ddf9e4b.ngrok.io
