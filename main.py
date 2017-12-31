@@ -4,6 +4,8 @@ from flask import request
 from flask import jsonify
 import requests
 import json
+global last_update_id
+last_update_id=0
 
 app = Flask(__name__)
 URL='https://api.telegram.org/bot{}/'.format(token)
@@ -33,8 +35,12 @@ def index():
         #write_json(r)
         chat_id=r['message']['chat']['id']
         text=r['message']['text']
-        if 'bitcoin' in text:
-            send_message(chat_id,text+'- dorogoi')
+        update_id=r['message']['update_id']
+        global last_update_id
+        if update_id !=last_update_id:
+            last_update_id=update_id
+            if 'bitcoin' in text:
+                send_message(chat_id,text+'- dorogoi'+str(update_id))
         
         return r.json()
     return'<h1>Hello Bot!</h1>'
