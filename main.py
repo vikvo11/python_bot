@@ -1,5 +1,5 @@
 from flask import Flask
-from misck import token,chat_id
+from misck import token,chat_id_old
 import requests
 import json
 
