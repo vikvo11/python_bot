@@ -33,7 +33,7 @@ def main():
     #print (r)
     chat_id=r['result'][-1]['message']['chat']['id']
     text=r['result'][-1]['message']['text']
-    print (chatId+' '+text)
+    print (chat_id+' '+text)
 
 
 
