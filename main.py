@@ -12,7 +12,7 @@ def write_json(data,filename='answer.json'):
 
 def main():
     r=requests.get(URL+'getMe')
-    write_json(r.json)
+    #write_json(r.json)
     print (r.json())
 
 
