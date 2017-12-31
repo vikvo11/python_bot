@@ -14,7 +14,8 @@ def get_updates():
     url=URL+'getUpdates'
     #print(url)
     r=requests.get(url)
-    write_json(r.json())
+    #write_json(r.json())
+    return r.json()
 
 def send_message(chatId,text='Please wait a few seconds...!'):
     url=URL+'sendMessage'
@@ -27,7 +28,9 @@ def main():
     #write_json(r.json())
     #print (r.json())
     #get_updates()
-    send_message(chat_id)
+    #send_message(chat_id)
+    r = get_updates()
+    print (r)
 
 
 
