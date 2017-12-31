@@ -4,3 +4,20 @@
 4. pip install flask
  -> Run Flas with 0.0.0.0 IP (app.run(host='0.0.0.0',port = 5000))
 5. Install flask-sslify for HTTPS
+ -> pip install flask-sslify
+
+ *** www.pythonanywhere.com
+
+ 1. install virtualenv and all modueles+app in console
+ 2. Conf a WEB app
+  -> Source code:
+  -> WSGI configuration file (FLASK) :
+    import sys
+
+    path = '/home/vorovik/python_bot'
+
+    if path not in sys.path:
+    sys.path.append(path)
+
+    from main import app as application
+  -> Virtualenv:
