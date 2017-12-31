@@ -24,9 +24,10 @@ def send_message(chatId,text='Please wait a few seconds...!'):
     r=requests.get(url,json=answer)
     return r.json()
 
-    @app.route('/')
-        def index():
-            return'<h1>Hello Bot!</h1>'
+@app.route('/')
+def index():
+    return'<h1>Hello Bot!</h1>'
+    
 def main():
     #r=requests.get(URL+'getMe')
     #write_json(r.json())
