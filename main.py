@@ -19,7 +19,7 @@ def main():
     #r=requests.get(URL+'getMe')
     #write_json(r.json())
     #print (r.json())
-get_updates()
+    get_updates()
 
 
 
