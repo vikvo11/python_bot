@@ -15,7 +15,7 @@ def write_json(data,filename='answer.json'):
         json.dump(data,f,indent=2,ensure_ascii=False)
 
 def get_updates():
-s    url=URL+'getUpdates'
+    url=URL+'getUpdates'
     #print(url)
     r=requests.get(url)
     write_json(r.json())
