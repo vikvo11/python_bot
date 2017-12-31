@@ -1,5 +1,5 @@
 from flask import Flask
-from misck import token
+from misck import token,chat_id
 import requests
 import json
 
@@ -12,15 +12,21 @@ def write_json(data,filename='answer.json'):
 
 def get_updates():
     url=URL+'getUpdates'
-    print(url)
+    #print(url)
     r=requests.get(url)
     write_json(r.json())
 
+def send_message(chat_id,text='Please wait a few seconds...'):
+    url=URL+'sendMessage'
+    answer ={'chat_id':chat_id,'text':text} #словарь
+    r=request.get(url,json=answer)
+    return r.json()
 def main():
     #r=requests.get(URL+'getMe')
     #write_json(r.json())
     #print (r.json())
-    get_updates()
+    #get_updates()
+    send_message(chat_id)
 
 
 
