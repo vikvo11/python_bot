@@ -16,9 +16,9 @@ def get_updates():
     r=requests.get(url)
     write_json(r.json())
 
-def send_message(chat_id,text='Please wait a few seconds...'):
+def send_message(chatId,text='Please wait a few seconds...'):
     url=URL+'sendMessage'
-    answer ={'chat_id':chat_id,'text':text} #словарь
+    answer ={'chat_id': chatId,'text': text} #словарь
     print(answer)
     #r=request.get(url,json=answer)
     #return r.json()
