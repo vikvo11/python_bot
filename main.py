@@ -12,6 +12,7 @@ def write_json(data,filename='answer.json'):
 
 def get_updates():
     url=URL+'getUpdates'
+    print(url)
     r=requests.get(url)
     write_json(r.json())
 
