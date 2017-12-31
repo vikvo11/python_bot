@@ -1,5 +1,7 @@
 from flask import Flask
 from misck import token,chat_id_old
+from flask import request
+from flask import jsonify
 import requests
 import json
 
@@ -24,10 +26,15 @@ def send_message(chatId,text='Please wait a few seconds...!'):
     r=requests.get(url,json=answer)
     return r.json()
 
-@app.route('/')
+@app.route('/',methods=['POST','GET'])
 def index():
+    if request.method =='POST':
+        r=request.get_json()
+        write_json(r)
+        return r.json()
     return'<h1>Hello Bot!</h1>'
-    
+#url=URL+'setWebhook?url=https://a5e19be0.ngrok.io/'
+
 def main():
     #r=requests.get(URL+'getMe')
     #write_json(r.json())

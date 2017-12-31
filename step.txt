@@ -7,6 +7,15 @@
  -> pip install flask-sslify
 6. pip install requests
 7. check ->locale
+8. tunel - http://localhost.run/
+    ssh -R 80:0.0.0.0:5000 -p 2222 ssh.localhost.run
+9. tunel - https://ngrok.com/
+    wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+    sudo yum install unzip
+    unzip ngrok-stable-linux-amd64.zip -d ngrok
+    ./ngrok http 5000 -> https
+10. webhook -> setWebhook?url=https://
+
 
  *** www.pythonanywhere.com
 
