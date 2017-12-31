@@ -31,7 +31,8 @@ def main():
     #send_message(chat_id)
     r = get_updates()
     print (r)
-    #chatId=r.[]
+    chatId=r.['result'][-1]['message']['chat']['id']
+    print (chatId)
 
 
 
