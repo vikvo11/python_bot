@@ -30,9 +30,13 @@ def main():
     #get_updates()
     #send_message(chat_id)
     r = get_updates()
-    print (r)
-    chatId=r['result'][-1]['message']['chat']['id']
-    print (chatId)
+    #print (r)
+    chat_id=r['result'][-1]['message']['chat']['id']
+    text=r['result'][-1]['message']['text']
+    print (chatId+' '+text)
+
+
+
 
 
 
