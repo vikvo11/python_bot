@@ -46,6 +46,8 @@ def index():
             send_message(chat_id,text+'- dorogoi'+str(update_id))
 
             return r.json()
+    r=request.get_json()
+    write_json(r)
     return '<h1>Test flask app!</h1><h2>Ypa!</h2>'
 
 def main():
