@@ -2,12 +2,15 @@ from flask import Flask
 from misck import token,chat_id_old
 from flask import request
 from flask import jsonify
+from flask_sslify import SSLify
+
 import requests
 import json
-global last_update_id
-last_update_id=0
+#global last_update_id
+#last_update_id=0
 
 app = Flask(__name__)
+sslify=SSLify(app)
 URL='https://api.telegram.org/bot{}/'.format(token)
 
 def write_json(data,filename='answer.json'):
@@ -33,7 +36,7 @@ def send_message(chatId,text='Please wait a few seconds...!'):
 
 @app.route('/')
 def index():
-    return'<h1>Hello Bot!</h1>'
+    return '<h1>Test flask app!</h1><h2>Ypa!</h2>'
 
 def main():
     #r=requests.get(URL+'getMe')
