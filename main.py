@@ -42,8 +42,8 @@ def index():
         #if 'bitcoin' in text:
         #    send_message(chat_id,text+'- dorogoi'+str(update_id))
 
-    return r.json()
-return'<h1>Hello Bot!</h1>'
+        return r.json()
+    return'<h1>Hello Bot!</h1>'
 #https://api.telegram.org/bot521265983:AAFUSq8QQzLUURwmCgXeBCjhRThRvf9YVM0/setWebhook?url=https://8ddf9e4b.ngrok.io
 #url=URL+'setWebhook?url=https://a5e19be0.ngrok.io/'
 
