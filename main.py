@@ -65,8 +65,9 @@ def index():
 
 @app.route('/test/')
 def test(mgs):
-    r='<h2>{}</h2>'.format(mgs)
-    return r
+    #r='<h2>{}</h2>'.format(mgs)
+    #return r
+    return '<h2>Test</h2>'
 
 def main():
     pass
