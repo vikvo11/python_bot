@@ -61,7 +61,7 @@ def index():
         #return 'ok'
 
         global last_msg
-        last_msg=json.dumps(r)
+        last_msg=json.dumps(r,ensure_ascii=False)
         return jsonify(r)
     return '<h1>Hello bot</h1>'
 
