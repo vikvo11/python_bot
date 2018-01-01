@@ -7,8 +7,7 @@ from flask_sslify import SSLify
 import requests
 import json
 import re
-#global last_update_id
-#last_update_id=0
+
 
 app = Flask(__name__)
 sslify=SSLify(app)
@@ -17,12 +16,10 @@ URL='https://api.telegram.org/bot{}/'.format(token)
 def write_json(data,filename='answer.json'):
     with open(filename,'w') as f:
         json.dump(data,f,indent=2,ensure_ascii=False)
-    # with open('test_'+filename,'a') as t:
-    #    t.write('hi'+str(k))
+
 
 def get_updates():
     url=URL+'getUpdates'
-    #print(url)
     r=requests.get(url)
     write_json(r.json())
     return r.json()
@@ -44,7 +41,6 @@ def get_price(crypto):
     url='https://api.coinmarketcap.com/v1/ticker/{}/'.format(crypto)
     r = requests.get(url).json()
     price = r[-1]['price_usd']
-    #write_json(r.json(),filename='price.json')
     return price
 
 @app.route('/',methods=['POST','GET'])
@@ -57,7 +53,6 @@ def index():
         write_json(text)
         pattern =r'/\w+'
         if re.search(pattern,text):
-        #if 'bitcoin' in text:
             price = get_price(parc_text(text))
             send_message(chat_id,price)
         #return 'ok'
@@ -66,7 +61,7 @@ def index():
 
 def main():
     pass
-
+    #print ('hi')
 
 
 

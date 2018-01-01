@@ -5,6 +5,7 @@
  -> Run Flas with 0.0.0.0 IP (app.run(host='0.0.0.0',port = 5000))
 5. Install flask-sslify for HTTPS
  -> pip install flask-sslify
+ -pip freeze
 6. pip install requests
 7. check ->locale
 8. tunel - http://localhost.run/
@@ -23,6 +24,7 @@
           crypto = re.search(pattern,text).group()
           return crypto[1:] # выводс со второго символа
 12. #priny(get_price(parc_text('сколько стоит /bitcoin?')))
+
  *** www.pythonanywhere.com
 
  1. install virtualenv and all modueles+app in console
