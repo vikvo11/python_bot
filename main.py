@@ -63,8 +63,8 @@ def index():
         return jsonify(r)
     return '<h1>Hello bot</h1>'
 
-@app.route('/test/')
-def test(mgs):
+@app.route('/test/',methods=['POST','GET'])
+def test():
     #r='<h2>{}</h2>'.format(mgs)
     #return r
     return '<h2>Test</h2>'
