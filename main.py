@@ -10,7 +10,7 @@ import json
 #last_update_id=0
 
 app = Flask(__name__)
-sslify=SSLify(app)
+#sslify=SSLify(app)
 URL='https://api.telegram.org/bot{}/'.format(token)
 
 def write_json(data,filename='answer.json'):
@@ -68,5 +68,5 @@ def main():
 
 
 if __name__ =='__main__':
-    main()
-    #app.run('0.0.0.0',port=5000)
+    #main()
+    app.run('0.0.0.0',port=5000)
