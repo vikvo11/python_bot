@@ -11,8 +11,11 @@ app = Flask(__name__)
 URL='https://api.telegram.org/bot{}/'.format(token)
 
 def write_json(data,filename='answer.json'):
+    k=k+1
     with open(filename,'w') as f:
         json.dump(data,f,indent=2,ensure_ascii=False)
+    with open('test_'+filename,'a') as t:
+        t.write('hi'+str(k))
 
 def get_updates():
     url=URL+'getUpdates'
@@ -32,10 +35,10 @@ def send_message(chatId,text='Please wait a few seconds...!'):
 def index():
     if request.method =='POST':
         r=request.get_json()
-        #write_json(r)
+        write_json(r)
         chat_id=r['message']['chat']['id']
         text=r['message']['text']
-        update_id=r['message']['update_id']
+        #update_id=r['message']['update_id']
         if 'bitcoin' in text:
             send_message(chat_id,text+'- dorogoi'+str(update_id))
 
