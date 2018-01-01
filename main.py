@@ -57,7 +57,7 @@ def index():
         pattern =r'/\w+'
         if re.search(pattern,text) in text:
             price = get_price(parc_text(text))
-            send_message(chat_id,text=price)
+            send_message(chat_id,text=price+'123')
         #return 'ok'
         return jsonify(r)
     return '<h1>Hello bot</h1>'
