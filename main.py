@@ -8,7 +8,10 @@ import requests
 import json
 import re
 
+global last_msg
+last_msg=''
 
+#https://api.telegram.org/bot521265983:AAFUSq8QQzLUURwmCgXeBCjhRThRvf9YVM0/setWebhook?url=https://vorovik.pythonanywhere.com/
 app = Flask(__name__)
 sslify=SSLify(app)
 URL='https://api.telegram.org/bot{}/'.format(token)
@@ -56,8 +59,14 @@ def index():
             price = get_price(parc_text(text))
             send_message(chat_id,price)
         #return 'ok'
+        last_msg=json.dumps(r)
         return jsonify(r)
     return '<h1>Hello bot</h1>'
+
+@app.route('/test/')
+def test(mgs):
+    r='<h2>{}</h2>'.format(mgs)
+    return r
 
 def main():
     pass
