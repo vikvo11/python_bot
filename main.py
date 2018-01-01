@@ -56,9 +56,9 @@ def index():
         text=r['message']['text']
         #pattern =r'/\w+'
         #if re.search(pattern,text) in text:
-        if 'bitcoin' in text:
+        if text == 'bitcoin':
             price = get_price(parc_text(text))
-            send_message(chat_id,text=price+'123')
+            send_message(chat_id,'123')
         #return 'ok'
         return jsonify(r)
     return '<h1>Hello bot</h1>'
