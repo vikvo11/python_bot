@@ -15,8 +15,14 @@
     unzip ngrok-stable-linux-amd64.zip -d ngrok
     ./ngrok http 5000 -> https
 10. webhook -> setWebhook?url=https://
-
-
+11. https://pythex.org/ regular expression
+      /\w+
+      import re
+      def parc_text(text)
+          pattern = r'/\w+''
+          crypto = re.search(pattern,text).group()
+          return crypto[1:] # выводс со второго символа
+12. #priny(get_price(parc_text('сколько стоит /bitcoin?')))
  *** www.pythonanywhere.com
 
  1. install virtualenv and all modueles+app in console

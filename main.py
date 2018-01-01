@@ -6,6 +6,7 @@ from flask_sslify import SSLify
 
 import requests
 import json
+import re
 #global last_update_id
 #last_update_id=0
 
@@ -14,7 +15,6 @@ sslify=SSLify(app)
 URL='https://api.telegram.org/bot{}/'.format(token)
 
 def write_json(data,filename='answer.json'):
-    #k=k+1
     with open(filename,'w') as f:
         json.dump(data,f,indent=2,ensure_ascii=False)
     # with open('test_'+filename,'a') as t:
@@ -34,6 +34,19 @@ def send_message(chatId,text='Please wait a few seconds...!'):
     r=requests.get(url,json=answer)
     return r.json()
 
+def parc_text(text)
+    pattern = r'/\w+''
+    crypto = re.search(pattern,text).group()
+    return crypto[1:]
+    #print(crypto)
+
+def get_price(crypto):
+    url='https://api.coinmarketcap.com/v1/ticker/{}}/'.format(crypto)
+    r = requests.get(url).json()
+    price = r[-1]['price_usd']
+    #write_json(r.json(),filename='price.json')
+    return price
+
 @app.route('/',methods=['POST','GET'])
 def index():
     if request.method=='POST':
@@ -41,21 +54,15 @@ def index():
         write_json(r)
         chat_id=r['message']['chat']['id']
         text=r['message']['text']
-        if 'bitcoin' in text:
-            send_message(chat_id,text+'- dorogoi')
+        pattern =r'/\w+''
+        if re.search(pattern,text) in text:
+            price = get_price(parc_text(text))
+            send_message(chat_id,text=price)
+        #return 'ok'
         return jsonify(r)
     return '<h1>Hello bot</h1>'
+
 def main():
-    #r=requests.get(URL+'getMe')
-    #write_json(r.json())
-    #print (r.json())
-    #get_updates()
-    #send_message(chat_id)
-    #r = get_updates()
-    #print (r)
-    #chat_id=r['result'][-1]['message']['chat']['id']
-    #text=r['result'][-1]['message']['text']
-    #print (str(chat_id)+' '+text)
     pass
 
 
