@@ -34,7 +34,7 @@ def send_message(chatId,text='Please wait a few seconds...!'):
     r=requests.get(url,json=answer)
     return r.json()
 
-def parc_text(text)
+def parc_text(text):
     pattern = r'/\w+''
     crypto = re.search(pattern,text).group()
     return crypto[1:]
