@@ -41,7 +41,7 @@ def parc_text(text):
     #print(crypto)
 
 def get_price(crypto):
-    url='https://api.coinmarketcap.com/v1/ticker/{}}/'.format(crypto)
+    url='https://api.coinmarketcap.com/v1/ticker/{}/'.format(crypto)
     r = requests.get(url).json()
     price = r[-1]['price_usd']
     #write_json(r.json(),filename='price.json')
@@ -58,7 +58,7 @@ def index():
         #pattern =r'/\w+'
         #if re.search(pattern,text) in text:
         if 'bitcoin' in text:
-            price = get_price(parc_text(text))
+            price = get_price('bitcoin')
             send_message(chat_id,price)
         #return 'ok'
         return jsonify(r)
