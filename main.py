@@ -35,7 +35,7 @@ def send_message(chatId,text='Please wait a few seconds...!'):
     return r.json()
 
 def parc_text(text):
-    pattern = r'/\w+''
+    pattern = r'/\w+'
     crypto = re.search(pattern,text).group()
     return crypto[1:]
     #print(crypto)
@@ -54,7 +54,7 @@ def index():
         write_json(r)
         chat_id=r['message']['chat']['id']
         text=r['message']['text']
-        pattern =r'/\w+''
+        pattern =r'/\w+'
         if re.search(pattern,text) in text:
             price = get_price(parc_text(text))
             send_message(chat_id,text=price)
