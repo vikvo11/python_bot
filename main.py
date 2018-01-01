@@ -14,11 +14,11 @@ sslify=SSLify(app)
 URL='https://api.telegram.org/bot{}/'.format(token)
 
 def write_json(data,filename='answer.json'):
-    k=k+1
+    #k=k+1
     with open(filename,'w') as f:
         json.dump(data,f,indent=2,ensure_ascii=False)
-    with open('test_'+filename,'a') as t:
-        t.write('hi'+str(k))
+    #with open('test_'+filename,'a') as t:
+    #    t.write('hi'+str(k))
 
 def get_updates():
     url=URL+'getUpdates'
@@ -37,7 +37,7 @@ def send_message(chatId,text='Please wait a few seconds...!'):
 @app.route('/',methods=['POST','GET'])
 def index():
     if request.method =='POST':
-        r=json.loads(request.data)
+        r=request.get_json()
         write_json(r)
         chat_id=r['message']['chat']['id']
         text=r['message']['text']
