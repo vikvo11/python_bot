@@ -17,7 +17,7 @@ def write_json(data,filename='answer.json'):
     #k=k+1
     with open(filename,'w') as f:
         json.dump(data,f,indent=2,ensure_ascii=False)
-    #with open('test_'+filename,'a') as t:
+    # with open('test_'+filename,'a') as t:
     #    t.write('hi'+str(k))
 
 def get_updates():
