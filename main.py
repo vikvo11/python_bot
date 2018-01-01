@@ -62,10 +62,11 @@ def index():
 
         global last_msg
         last_msg=json.dumps(r,ensure_ascii=False)
+        
         return jsonify(r)
     return '<h1>Hello bot</h1>'
 
-@app.route('/test/',methods=['POST','GET'])
+@app.route('/last_msg/',methods=['POST','GET'])
 def test():
     r='<h2>{}</h2>'.format(last_msg)
     return r
