@@ -37,7 +37,7 @@ def send_message(chatId,text='Please wait a few seconds...!'):
 @app.route('/',methods=['POST','GET'])
 def index():
     if request.method =='POST':
-    r=request.get_json()
+    r=json.loads(request.data)
     write_json(r)
     chat_id=r['message']['chat']['id']
     text=r['message']['text']
