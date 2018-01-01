@@ -45,8 +45,8 @@ def index():
         if 'bitcoin' in text:
             send_message(chat_id,text+'- dorogoi'+str(update_id))
 
-    return r.json()
-return '<h1>Test flask app!</h1><h2>Ypa!</h2>'
+            return r.json()
+    return '<h1>Test flask app!</h1><h2>Ypa!</h2>'
 
 def main():
     #r=requests.get(URL+'getMe')
