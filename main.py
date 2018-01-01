@@ -59,6 +59,8 @@ def index():
             price = get_price(parc_text(text))
             send_message(chat_id,price)
         #return 'ok'
+
+        global last_msg
         last_msg=json.dumps(r)
         return jsonify(r)
     return '<h1>Hello bot</h1>'
