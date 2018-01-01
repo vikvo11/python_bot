@@ -54,8 +54,9 @@ def index():
         write_json(r)
         chat_id=r['message']['chat']['id']
         text=r['message']['text']
-        pattern =r'/\w+'
-        if re.search(pattern,text) in text:
+        #pattern =r'/\w+'
+        #if re.search(pattern,text) in text:
+        if 'bitcoin' in text:
             price = get_price(parc_text(text))
             send_message(chat_id,text=price+'123')
         #return 'ok'
