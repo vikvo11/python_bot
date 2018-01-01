@@ -34,10 +34,10 @@ def send_message(chatId,text='Please wait a few seconds...!'):
 @app.route('/',methods=['POST','GET'])
 def index():
     if request.method =='POST':
-        r=request.get_json()
-        write_json(r)
-        chat_id=r['message']['chat']['id']
-        text=r['message']['text']
+        #r=request.get_json()
+        #write_json(r)
+        #chat_id=r['message']['chat']['id']
+        #text=r['message']['text']
         #update_id=r['message']['update_id']
         #if 'bitcoin' in text:
         #    send_message(chat_id,text+'- dorogoi'+str(update_id))
@@ -46,6 +46,14 @@ def index():
     return'<h1>Hello Bot!</h1>'
 #https://api.telegram.org/bot521265983:AAFUSq8QQzLUURwmCgXeBCjhRThRvf9YVM0/setWebhook?url=https://8ddf9e4b.ngrok.io
 #url=URL+'setWebhook?url=https://a5e19be0.ngrok.io/'
+@app.route("/telegram/", methods=['POST'])
+def hello():
+    r = json.loads(request.data)
+
+    if r['message']['text'] == '/ping':
+        send_message(chat_id,text+'- dorogoi'+str(update_id))
+        write_json(r)
+    return 'ok'
 
 def main():
     #r=requests.get(URL+'getMe')
