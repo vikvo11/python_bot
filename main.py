@@ -65,9 +65,9 @@ def index():
 
 @app.route('/test/',methods=['POST','GET'])
 def test():
-    #r='<h2>{}</h2>'.format(mgs)
-    #return r
-    return '<h2>Test</h2>'
+    r='<h2>{}</h2>'.format(last_msg)
+    return r
+    #return '<h2>Test</h2>'
 
 def main():
     pass
