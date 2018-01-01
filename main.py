@@ -36,20 +36,11 @@ def send_message(chatId,text='Please wait a few seconds...!'):
 
 @app.route('/',methods=['POST','GET'])
 def index():
-    if request.method =='POST':
-        r=request.get_json()
+    if request.method=='POST':
+        r = request.get_json()
         write_json(r)
-        chat_id=r['message']['chat']['id']
-        text=r['message']['text']
-    #update_id=r['message']['update_id']
-        if 'bitcoin' in text:
-            send_message(chat_id,text+'- dorogoi'+str(update_id))
-
-            return r.json()
-    r=request.get_json()
-    write_json(r)
-    return '<h1>Test flask app!</h1><h2>Ypa!</h2>'
-
+        return jsonify(r)
+    return '<h1>Hello bot</h1>'
 def main():
     #r=requests.get(URL+'getMe')
     #write_json(r.json())
