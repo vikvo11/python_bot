@@ -72,7 +72,7 @@ def home():
 def do_admin_login():
     if request.form['password'] == 'python' and request.form['username'] == 'vorovik':
         session['logged_in'] = True
-        get_password('vorovik')
+        #get_password('vorovik')
     else:
         flash('wrong password!')
     return home()
@@ -98,7 +98,7 @@ def index():
     return '<h1>Hello bot</h1>'
 
 @app.route('/last_msg/',methods=['POST','GET'])
-@auth.login_required
+#@auth.login_required
 def test():
     r='<h2>{}</h2>'.format(last_msg)
     return r
