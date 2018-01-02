@@ -67,7 +67,7 @@ def get_pw(username):
         return users.get(username)
     return None
 
-@app.route('/l')
+@app.route('/')
 def index():
     return render_template('home.html')
 
