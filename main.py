@@ -4,6 +4,8 @@ from flask import request
 from flask import jsonify
 from flask_sslify import SSLify
 
+from data import Articles
+
 from flask.ext.httpauth import HTTPBasicAuth
 auth = HTTPBasicAuth()
 
@@ -19,7 +21,7 @@ global login
 login=False
 global last_msg
 last_msg=''
-
+Articles = Articles()
 #https://api.telegram.org/bot521265983:AAFUSq8QQzLUURwmCgXeBCjhRThRvf9YVM0/setWebhook?url=https://vorovik.pythonanywhere.com/
 app = Flask(__name__)
 app.debug = True
@@ -70,9 +72,14 @@ def get_pw(username):
 @app.route('/')
 def index():
     return render_template('home.html')
+
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+@app.route('/articles')
+def articles():
+    return render_template('articles.html',articles=Articles)
 
 @app.route('/log')
 def home():
