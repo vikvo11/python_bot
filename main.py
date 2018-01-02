@@ -57,6 +57,7 @@ def get_price(crypto):
 users = {
     "vorovik": "python123",
     "susan": "bye"
+    "test": generate_password_hash("test"),
 }
 
 #@auth.get_password
@@ -85,7 +86,7 @@ def do_admin_login():
         #text= request.form['password'] +' '+request.form['username']
         #send_message(chat_id,text)
         #if request.form['password'] == 'python' and request.form['username'] == 'vorovik':
-        if request.form['username'] in users and request.form['password'] == users.get(request.form['username']):
+        if request.form['username'] in users: #and request.form['password'] == users.get(request.form['username']):
            global login
            login=True
 
@@ -93,7 +94,7 @@ def do_admin_login():
            def verify_password(username, password):
                if request.form['username'] in users:
                    #return request.form['password']
-                   return check_password_hash(generate_password_hash(request.form['password']),password)
+                   return check_password_hash(users.get(request.form['username']),password)
                return False
 
            #get_password(request.form['username'])
