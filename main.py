@@ -6,7 +6,12 @@ from flask_sslify import SSLify
 
 from flask.ext.httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
+import base64
 auth = HTTPBasicAuth()
+headers={
+   'content-type': 'application/json',
+   'Authorization': 'Basic %s' % base64.b64encode('vorovik:python123')
+}
 
 from flask import Flask, flash, redirect, render_template, request, session, abort
 
@@ -60,11 +65,11 @@ users = {
     "test": generate_password_hash("test")
 }
 
-#@auth.get_password
-#def get_pw(username):
-#    if username in users:
-#        return users.get(username)
-#    return None
+@auth.get_password
+def get_pw(username):
+    if username in users:
+        return users.get(username)
+    return None
 
 #@auth.error_handler
 #def unauthorized():
@@ -90,19 +95,23 @@ def do_admin_login():
            global login
            login=True
 
-           @auth.verify_password
-           def verify_password(username, password):
-               if request.form['username'] in users:
-                   #return request.form['password']
-                   return check_password_hash(users.get(request.form['username']),password)
-               return False
+           #@auth.verify_password
+           #def verify_password(username, password):
+             #  if request.form['username'] in users:
+                  # return check_password_hash(users.get(request.form['username']),password)
+              # return False
 
            #get_password(request.form['username'])
            #@auth.get_password(request.form['password'])
 
            #get_pw(request.form['username'])
                #return request.form['password']
-
+               response = self.app.post(
+            'https://vorovik.pythonanywhere.com/last_msg/,
+            data=',
+            headers=headers,
+            follow_redirects=True
+        )
            return 'login=True'
            #return redirect(url_for('/last_msg'))
         #return jsonify(chat_id)
