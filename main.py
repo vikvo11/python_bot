@@ -56,8 +56,8 @@ def get_price(crypto):
 
 users = {
     "vorovik": "python123",
-    "susan": "bye"
-    "test": generate_password_hash("test"),
+    "susan": "bye",
+    "test": generate_password_hash("test")
 }
 
 #@auth.get_password
