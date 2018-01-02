@@ -13,7 +13,8 @@ import requests
 import json
 import re
 
-global login=False
+global login
+login=False
 global last_msg
 last_msg=''
 
