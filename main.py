@@ -5,6 +5,7 @@ from flask import jsonify
 from flask_sslify import SSLify
 
 from flask.ext.httpauth import HTTPBasicAuth
+from werkzeug.security import generate_password_hash, check_password_hash
 auth = HTTPBasicAuth()
 
 from flask import Flask, flash, redirect, render_template, request, session, abort
@@ -91,8 +92,10 @@ def do_admin_login():
            @auth.verify_password
            def verify_password(username, password):
                if request.form['username'] in users:
-                   return request.form['password']
+                   #return request.form['password']
+                   return check_password_hash(request.form['username'], request.form['password'])
                return False
+
            #get_password(request.form['username'])
            #@auth.get_password(request.form['password'])
 
