@@ -87,6 +87,12 @@ def do_admin_login():
         if request.form['username'] in users and request.form['password'] == users.get(request.form['username']):
            global login
            login=True
+
+           @auth.verify_password
+           def verify_password(username, password):
+               if request.form['username'] in users:
+                   return request.form['password']
+               return False
            #get_password(request.form['username'])
            #@auth.get_password(request.form['password'])
 
