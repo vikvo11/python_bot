@@ -22,6 +22,7 @@ last_msg=''
 
 #https://api.telegram.org/bot521265983:AAFUSq8QQzLUURwmCgXeBCjhRThRvf9YVM0/setWebhook?url=https://vorovik.pythonanywhere.com/
 app = Flask(__name__)
+app.debug = True
 sslify=SSLify(app)
 URL='https://api.telegram.org/bot{}/'.format(token)
 
@@ -65,6 +66,10 @@ def get_pw(username):
     if username in users:
         return users.get(username)
     return None
+
+@app.route('/l')
+def index():
+    return render_template('home.html')
 
 
 @app.route('/log')
