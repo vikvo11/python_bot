@@ -88,7 +88,8 @@ def do_admin_login():
            global login
            login=True
            #get_password(request.form['username'])
-           @auth.get_password(request.form['password'])
+            @auth.get_password(request.form['password'])
+
            #def get_pww(username):
                #return request.form['password']
 
