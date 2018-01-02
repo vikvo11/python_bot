@@ -76,6 +76,7 @@ def do_admin_login():
         send_message(chat_id,text)
         if request.form['password'] == 'python' and request.form['username'] == 'vorovik':
            session['logged_in'] = True
+           return jsonify(chat_id)
         return jsonify(chat_id)
     return '<h1>Login</h1>'
 
