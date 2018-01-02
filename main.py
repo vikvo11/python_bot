@@ -4,6 +4,9 @@ from flask import request
 from flask import jsonify
 from flask_sslify import SSLify
 
+from flask.ext.httpauth import HTTPBasicAuth
+auth = HTTPBasicAuth()
+
 import requests
 import json
 import re
@@ -46,6 +49,16 @@ def get_price(crypto):
     price = r[-1]['price_usd']
     return price
 
+@auth.get_password
+def get_password(username):
+    if username == 'vorovik:
+        return 'python'
+    return None
+
+@auth.error_handler
+def unauthorized():
+    return make_response(jsonify({'error': 'Unauthorized access'}), 401)
+
 @app.route('/',methods=['POST','GET'])
 def index():
     if request.method=='POST':
@@ -62,7 +75,7 @@ def index():
 
         global last_msg
         last_msg=json.dumps(r,ensure_ascii=False)
-        
+
         return jsonify(r)
     return '<h1>Hello bot</h1>'
 
