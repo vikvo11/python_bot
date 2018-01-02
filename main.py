@@ -10,7 +10,7 @@ import base64
 auth = HTTPBasicAuth()
 
 
-def request(self, method, url, auth=None, **kwargs):
+def request1(self, method, url, auth=None, **kwargs):
     headers = kwargs.get('headers', {})
     if auth:
         headers['Authorization'] = 'Basic ' + base64.b64encode(auth[0] + ':' + auth[1])
@@ -112,9 +112,9 @@ def do_admin_login():
 
            #get_pw(request.form['username'])
                #return request.form['password']
-           #self.request('GET', 'https://vorovik.pythonanywhere.com/last_msg/', auth=('vorovik', 'python123'))
-           #return resp
-           return 'login=True'
+           r=self.request1('GET', 'https://vorovik.pythonanywhere.com/last_msg/', auth=('vorovik', 'python123'))
+           return print(r)
+           #return 'login=True'
            #return redirect(url_for('/last_msg'))
         #return jsonify(chat_id)
         return 'login=False'
