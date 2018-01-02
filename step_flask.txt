@@ -8,3 +8,22 @@
     {% for article in articles %}
         {{article.title}}
     {% endfor %}
+7 Data base:
+Database host address:vorovik.mysql.pythonanywhere-services.com
+Username: vorovik
+password: cb.,fq12-
+Start a console on:vorovik$vorovikapp
+
+SHOW DATABASES;
+CREATE DATABASE vorovik_app
+USE vorovik$vorovikapp
+
+CREATE TABLE users(id INT(11) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), email VARCHAR(100), username VARCHAR(30), password VARCHAR(100),
+ register_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, token VARCHAR(100));
+
+ SHOW TABLES;
+ DESCRIBE users;
+
+ pip install flask-mysqldb  # need mysql-server yum install mysql-server 
+ pip install Flask-WTF
+ pip install passlib

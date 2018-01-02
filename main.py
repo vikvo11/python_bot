@@ -1,17 +1,21 @@
-from flask import Flask
+#from flask import Flask
 from misck import token,chat_id_old
-from flask import request
+#from flask import request
 from flask import jsonify
 from flask_sslify import SSLify
 
-from data import Articles
+from flask import Flask, flash, redirect, render_template, request, session, abort,url_for,logging
+from flask_mysqldb import MySQL
+from wtforms import Form, StringField, TextAreaField, PasswordField, validators
+from passlib.hash import sha256_crypt
 
+from data import Articles
 from flask.ext.httpauth import HTTPBasicAuth
 auth = HTTPBasicAuth()
 
 
 
-from flask import Flask, flash, redirect, render_template, request, session, abort
+
 
 import requests
 import json
@@ -85,6 +89,23 @@ def articles():
 def article(id):
     #return str(id)
     return render_template('article.html',id=id)
+
+class RegisterForm(Form):
+    name = StringField('Name',[validators.length(min=1, max=50)])
+    username = StringField('Username',[validators.length(min=4, max=25)])
+    email = StringField('Email',[validators.length(min=6, max=50)])
+    password = PasswordField('Email',[
+        validators.DataRequired()
+        validators.EqualTo('confirm', message='Password do not match')
+    ])
+    confirm = PasswordField('Confirm Password')
+
+@app.route('/register', methods=['GET','POST'])
+def register():
+    form = RegisterForm(request.form)
+    if request.method =='POST' and form.validate():
+        return 'ok'
+    return render_template('register.html', from=form)
 
 @app.route('/log')
 def home():
