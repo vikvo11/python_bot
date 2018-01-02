@@ -93,8 +93,8 @@ def do_admin_login():
            #get_pw(request.form['username'])
                #return request.form['password']
 
-           #return 'login=True'
-           return redirect(url_for('/last_msg'))
+           return 'login=True'
+           #return redirect(url_for('/last_msg'))
         #return jsonify(chat_id)
         return 'login=False'
     return '<h1>Login</h1>'
