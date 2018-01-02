@@ -105,7 +105,7 @@ def register():
     form = RegisterForm(request.form)
     if request.method =='POST' and form.validate():
         return 'ok'
-    return render_template('register.html', from=form)
+    return render_template('register.html', form=form)
 
 @app.route('/log')
 def home():
