@@ -53,12 +53,17 @@ def get_price(crypto):
     price = r[-1]['price_usd']
     return price
 
-#@auth.get_password
-#def get_password(username):
-#    if username == 'vorovik':
-#        return 'python'
-#    return None
-#
+users = {
+    "vorovik": "python",
+    "susan": "bye"
+}
+
+@auth.get_password
+def get_pw(username):
+    if username in users:
+        return users.get(username)
+    return None
+
 #@auth.error_handler
 #def unauthorized():
 #    return make_response(jsonify({'error': 'Unauthorized access'}), 401)
@@ -117,7 +122,7 @@ def test():
         return r
     return '<h1>Lock</h1>'
     #return '<h2>Test</h2>'
-
+    #return "Hello, %s!" % auth.username()
 def main():
     pass
     #print ('hi')
