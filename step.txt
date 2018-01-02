@@ -24,6 +24,8 @@
           crypto = re.search(pattern,text).group()
           return crypto[1:] # выводс со второго символа
 12. #priny(get_price(parc_text('сколько стоит /bitcoin?')))
+     curl -u miguel:python -i http://localhost:5000/todo/api/v1.0/tasks
+13. login template from codepen.io.
 
  *** www.pythonanywhere.com
 

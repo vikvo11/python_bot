@@ -88,6 +88,11 @@ def do_admin_login():
            global login
            login=True
            #get_password(request.form['username'])
+           @auth.get_password
+           def get_pw(username=request.form['username']): 
+               if username in users:
+                   return users.get(username)
+                   return None
            return 'login=True'
         #return jsonify(chat_id)
         return 'login=False'
