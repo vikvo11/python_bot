@@ -106,13 +106,13 @@ def do_admin_login():
 
            #get_pw(request.form['username'])
                #return request.form['password']
-               response = self.app.post(
+               response = requets.post(
             'https://vorovik.pythonanywhere.com/last_msg/,
-            data=',
             headers=headers,
             follow_redirects=True
         )
-           return 'login=True'
+            return response
+           #return 'login=True'
            #return redirect(url_for('/last_msg'))
         #return jsonify(chat_id)
         return 'login=False'
