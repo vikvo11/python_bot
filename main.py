@@ -5,19 +5,11 @@ from flask import jsonify
 from flask_sslify import SSLify
 
 from flask.ext.httpauth import HTTPBasicAuth
-from werkzeug.security import generate_password_hash, check_password_hash
-import base64
+#from werkzeug.security import generate_password_hash, check_password_hash
+#import base64
 auth = HTTPBasicAuth()
 
 
-def request1(self, method, url, auth=None, **kwargs):
-    headers = kwargs.get('headers', {})
-    if auth:
-        headers['Authorization'] = 'Basic ' + base64.b64encode(auth[0] + ':' + auth[1])
-
-    kwargs['headers'] = headers
-
-    return self.app.open(url, method=method, **kwargs)
 
 from flask import Flask, flash, redirect, render_template, request, session, abort
 
@@ -67,8 +59,7 @@ def get_price(crypto):
 
 users = {
     "vorovik": "python123",
-    "susan": "bye",
-    "test": generate_password_hash("test")
+    "susan": "bye"
 }
 
 @auth.get_password
@@ -97,7 +88,7 @@ def do_admin_login():
         #text= request.form['password'] +' '+request.form['username']
         #send_message(chat_id,text)
         #if request.form['password'] == 'python' and request.form['username'] == 'vorovik':
-        if request.form['username'] in users: #and request.form['password'] == users.get(request.form['username']):
+        if request.form['username'] in users and request.form['password'] == users.get(request.form['username']):
            global login
            login=True
 
@@ -112,8 +103,8 @@ def do_admin_login():
 
            #get_pw(request.form['username'])
                #return request.form['password']
-           r=request1('GET', 'https://vorovik.pythonanywhere.com/last_msg/', auth=('vorovik', 'python123'))
-           return 'login=True'+r
+
+           return 'login=True'
            #return 'login=True'
            #return redirect(url_for('/last_msg'))
         #return jsonify(chat_id)
