@@ -7,6 +7,8 @@ from flask_sslify import SSLify
 from flask.ext.httpauth import HTTPBasicAuth
 auth = HTTPBasicAuth()
 
+from flask import Flask, flash, redirect, render_template, request, session, abort
+
 import requests
 import json
 import re
@@ -59,7 +61,14 @@ def get_password(username):
 def unauthorized():
     return make_response(jsonify({'error': 'Unauthorized access'}), 401)
 
-@app.route('/',methods=['POST','GET'])
+@app.route('/')
+def home():
+    if not session.get('logged_in'):
+        return render_template('login.html')
+    else:
+        return "Hello Boss!"
+
+@app.route('/webhook/',methods=['POST','GET'])
 def index():
     if request.method=='POST':
         r = request.get_json()
