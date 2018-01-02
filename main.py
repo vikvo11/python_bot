@@ -93,7 +93,7 @@ def do_admin_login():
            def verify_password(username, password):
                if request.form['username'] in users:
                    #return request.form['password']
-                   return check_password_hash(request.form['password'],password)
+                   return check_password_hash(generate_password_hash(request.form['password']),password)
                return False
 
            #get_password(request.form['username'])
