@@ -80,7 +80,8 @@ def about():
 @app.route('/articles')
 def articles():
     return render_template('articles.html',articles=Articles)
-@app.route('/article/<string:id>/')
+
+@app.route('/article/<string:id=1>/')
 def article(id):
     return str(id)
     #return render_template('articles.html',id=id)
