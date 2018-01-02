@@ -95,7 +95,7 @@ class RegisterForm(Form):
     username = StringField('Username',[validators.length(min=4, max=25)])
     email = StringField('Email',[validators.length(min=6, max=50)])
     token = StringField('Token',[validators.length(min=6, max=50)])
-    password = PasswordField('Email',[
+    password = PasswordField('Password',[
         validators.DataRequired(),
         validators.EqualTo('confirm', message='Password do not match')
     ])
