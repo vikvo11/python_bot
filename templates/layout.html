@@ -3,16 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>MyFlasApp</title>
-    
+
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet">
   </head>
   <body>
     {% include 'includes/_navbar.html' %}
-    <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
-      {%block body%}{% endblock %}
-    </div>
+    <main role="main" class="container">
+      <div class="starter-template">
+          <h1>Bootstrap starter template</h1>
+          <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        {%block body%}{% endblock %}
+      </div>
+    </main><!-- /.container -->
 
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
   </body>
