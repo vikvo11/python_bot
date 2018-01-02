@@ -68,7 +68,7 @@ def home():
     else:
         return "Hello Boss!"
 
-@app.route('/login', methods=['POST','GET'])
+@app.route('/login', methods=['POST'])
 def do_admin_login():
     if request.form['password'] == 'python' and request.form['username'] == 'vorovik':
         session['logged_in'] = True
@@ -76,8 +76,10 @@ def do_admin_login():
         #get_password('vorovik')
     else:
         flash('wrong password!')
+        return 'ok'
     #return home()
-    return '<h1>Session=True</h1>  '+r
+    #return '<h1>Session=True</h1>  '+r
+    return 'ok'
 
 @app.route('/webhook/',methods=['POST','GET'])
 def index():
