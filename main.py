@@ -83,8 +83,8 @@ def articles():
 
 @app.route('/article/<string:id>/')
 def article(id):
-    return str(id)
-    #return render_template('articles.html',id=id)
+    #return str(id)
+    return render_template('article.html',id=id)
 
 @app.route('/log')
 def home():
