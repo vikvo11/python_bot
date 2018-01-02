@@ -115,14 +115,15 @@ def index():
 
 @app.route('/last_msg/',methods=['POST','GET'])
 @auth.login_required
-def test():
-    global Login
-    if Login == True:
-        r='<h2>{}</h2>'.format(last_msg)
-        return r
-    return '<h1>Lock</h1>'
-    #return '<h2>Test</h2>'
-    #return "Hello, %s!" % auth.username()
+#def test():
+#    global Login
+#    if Login == True:
+    #    r='<h2>{}</h2>'.format(last_msg)
+    #    return r
+    #return '<h1>Lock</h1>'
+def tes():
+    return "Hello, %s!" % auth.username()
+    
 def main():
     pass
     #print ('hi')
