@@ -5,8 +5,6 @@ from flask import jsonify
 from flask_sslify import SSLify
 
 from flask.ext.httpauth import HTTPBasicAuth
-#from werkzeug.security import generate_password_hash, check_password_hash
-#import base64
 auth = HTTPBasicAuth()
 
 
@@ -49,7 +47,7 @@ def parc_text(text):
     pattern = r'/\w+'
     crypto = re.search(pattern,text).group()
     return crypto[1:]
-    #print(crypto)
+
 
 def get_price(crypto):
     url='https://api.coinmarketcap.com/v1/ticker/{}/'.format(crypto)
@@ -68,11 +66,8 @@ def get_pw(username):
         return users.get(username)
     return None
 
-#@auth.error_handler
-#def unauthorized():
-#    return make_response(jsonify({'error': 'Unauthorized access'}), 401)
 
-@app.route('/')
+@app.route('/log')
 def home():
     global login
     login=False
@@ -84,18 +79,11 @@ def home():
 @app.route('/login', methods=['POST','GET'])
 def do_admin_login():
     if request.method=='POST':
-        #chat_id='488735610'
-        #text= request.form['password'] +' '+request.form['username']
-        #send_message(chat_id,text)
-        #if request.form['password'] == 'python' and request.form['username'] == 'vorovik':
         if request.form['username'] in users and request.form['password'] == users.get(request.form['username']):
            global login
            login=True
-           
+
            return 'login=True'
-           #return 'login=True'
-           #return redirect(url_for('/last_msg'))
-        #return jsonify(chat_id)
         return 'login=False'
     return '<h1>Login</h1>'
 
@@ -113,7 +101,6 @@ def index():
         if re.search(pattern,text):
             price = get_price(parc_text(text))
             send_message(chat_id,price)
-        #return 'ok'
 
         global last_msg
         last_msg=json.dumps(r,ensure_ascii=False)
@@ -127,7 +114,6 @@ def index():
 def tes():
     r='<h2>{}</h2>'.format(last_msg)
     return r
-    #return "Hello, %s!" % auth.username()
 
 def main():
     pass
