@@ -80,6 +80,7 @@ def index():
     return '<h1>Hello bot</h1>'
 
 @app.route('/last_msg/',methods=['POST','GET'])
+@auth.login_required
 def test():
     r='<h2>{}</h2>'.format(last_msg)
     return r
