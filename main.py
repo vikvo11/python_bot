@@ -51,15 +51,15 @@ def get_price(crypto):
     price = r[-1]['price_usd']
     return price
 
-@auth.get_password
-def get_password(username):
-    if username == 'vorovik':
-        return 'python'
-    return None
-
-@auth.error_handler
-def unauthorized():
-    return make_response(jsonify({'error': 'Unauthorized access'}), 401)
+#@auth.get_password
+#def get_password(username):
+#    if username == 'vorovik':
+#        return 'python'
+#    return None
+#
+#@auth.error_handler
+#def unauthorized():
+#    return make_response(jsonify({'error': 'Unauthorized access'}), 401)
 
 @app.route('/')
 def home():
@@ -75,7 +75,8 @@ def do_admin_login():
         #get_password('vorovik')
     else:
         flash('wrong password!')
-    return home()
+    #return home()
+    return test()
 
 @app.route('/webhook/',methods=['POST','GET'])
 def index():
