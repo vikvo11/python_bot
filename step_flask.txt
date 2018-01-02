@@ -3,3 +3,8 @@
 3 https://www.bootstrapcdn.com/
 4 https://getbootstrap.com/
 5 <div class="container" style="padding-top:5rem">
+6 return render_template('articles.html',articles=Articles)
+    -> articles.html
+    {% for article in articles %}
+        {{article.title}}
+    {% endfor %}
