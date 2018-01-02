@@ -81,7 +81,7 @@ def about():
 def articles():
     return render_template('articles.html',articles=Articles)
 
-@app.route('/article/<string:id=1>/')
+@app.route('/article/<string:id>/')
 def article(id):
     return str(id)
     #return render_template('articles.html',id=id)
