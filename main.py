@@ -8,10 +8,16 @@ from flask.ext.httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 import base64
 auth = HTTPBasicAuth()
-headers={
-   'content-type': 'application/json',
-   'Authorization': 'Basic %s' % base64.b64encode('vorovik: python123')
-}
+
+
+def request(self, method, url, auth=None, **kwargs):
+    headers = kwargs.get('headers', {})
+    if auth:
+        headers['Authorization'] = 'Basic ' + base64.b64encode(auth[0] + ':' + auth[1])
+
+    kwargs['headers'] = headers
+
+    return self.app.open(url, method=method, **kwargs)
 
 from flask import Flask, flash, redirect, render_template, request, session, abort
 
@@ -106,8 +112,8 @@ def do_admin_login():
 
            #get_pw(request.form['username'])
                #return request.form['password']
-
-           return requets.post('https://vorovik.pythonanywhere.com/last_msg/',headers=headers,follow_redirects=True)
+resp = self.request('GET', 'https://vorovik.pythonanywhere.com/last_msg/', auth=('vorovik', 'python123'))
+           return resp
            #return 'login=True'
            #return redirect(url_for('/last_msg'))
         #return jsonify(chat_id)
