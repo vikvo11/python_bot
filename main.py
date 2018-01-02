@@ -59,11 +59,11 @@ users = {
     "susan": "bye"
 }
 
-@auth.get_password
-def get_pw(username):
-    if username in users:
-        return users.get(username)
-    return None
+#@auth.get_password
+#def get_pw(username):
+#    if username in users:
+#        return users.get(username)
+#    return None
 
 #@auth.error_handler
 #def unauthorized():
