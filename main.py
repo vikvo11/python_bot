@@ -10,7 +10,7 @@ import base64
 auth = HTTPBasicAuth()
 headers={
    'content-type': 'application/json',
-   'Authorization': 'Basic %s' % base64.b64encode('vorovik:python123')
+   'Authorization': 'Basic %s' % base64.b64encode('vorovik: python123')
 }
 
 from flask import Flask, flash, redirect, render_template, request, session, abort
