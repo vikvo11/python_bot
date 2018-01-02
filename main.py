@@ -90,10 +90,11 @@ def do_admin_login():
            #get_password(request.form['username'])
            #@auth.get_password(request.form['password'])
 
-           get_pw(request.form['username'])
+           #get_pw(request.form['username'])
                #return request.form['password']
 
-           return 'login=True'
+           #return 'login=True'
+           return redirect(url_for('/last_msg'))
         #return jsonify(chat_id)
         return 'login=False'
     return '<h1>Login</h1>'
