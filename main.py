@@ -51,7 +51,7 @@ def get_price(crypto):
 
 @auth.get_password
 def get_password(username):
-    if username == 'vorovik:
+    if username == 'vorovik':
         return 'python'
     return None
 
