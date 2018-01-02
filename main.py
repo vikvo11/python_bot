@@ -79,6 +79,7 @@ def do_admin_login():
         if request.form['password'] == 'python' and request.form['username'] == 'vorovik':
            global login
            login=True
+           get_password(request.form['username'])
            return 'login=True'
         return jsonify(chat_id)
     return '<h1>Login</h1>'
