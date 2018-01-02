@@ -53,15 +53,15 @@ def get_price(crypto):
     price = r[-1]['price_usd']
     return price
 
-#@auth.get_password
-#def get_password(username):
-#    if username == 'vorovik':
-#        return 'python'
-#    return None
+@auth.get_password
+def get_password(username):
+    if username == 'vorovik':
+        return 'python'
+    return None
 #
-#@auth.error_handler
-#def unauthorized():
-#    return make_response(jsonify({'error': 'Unauthorized access'}), 401)
+@auth.error_handler
+def unauthorized():
+    return make_response(jsonify({'error': 'Unauthorized access'}), 401)
 
 @app.route('/')
 def home():
@@ -106,7 +106,7 @@ def index():
     return '<h1>Hello bot</h1>'
 
 @app.route('/last_msg/',methods=['POST','GET'])
-#@auth.login_required
+@auth.login_required
 def test():
     r='<h2>{}</h2>'.format(last_msg)
     return r
