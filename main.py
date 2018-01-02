@@ -122,8 +122,10 @@ def index():
     #    return r
     #return '<h1>Lock</h1>'
 def tes():
-    return "Hello, %s!" % auth.username()
-    
+    r='<h2>{}</h2>'.format(last_msg)
+    return r
+    #return "Hello, %s!" % auth.username()
+
 def main():
     pass
     #print ('hi')
