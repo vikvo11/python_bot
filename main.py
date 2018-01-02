@@ -53,18 +53,20 @@ def get_price(crypto):
     price = r[-1]['price_usd']
     return price
 
-@auth.get_password
-def get_password(username):
-    if username == 'vorovik':
-        return 'python'
-    return None
+#@auth.get_password
+#def get_password(username):
+#    if username == 'vorovik':
+#        return 'python'
+#    return None
 #
-@auth.error_handler
-def unauthorized():
-    return make_response(jsonify({'error': 'Unauthorized access'}), 401)
+#@auth.error_handler
+#def unauthorized():
+#    return make_response(jsonify({'error': 'Unauthorized access'}), 401)
 
 @app.route('/')
 def home():
+    global login
+    login=False
     if not session.get('logged_in'):
         return render_template('login.html')
     else:
@@ -79,7 +81,7 @@ def do_admin_login():
         if request.form['password'] == 'python' and request.form['username'] == 'vorovik':
            global login
            login=True
-           get_password(request.form['username'])
+           #get_password(request.form['username'])
            return 'login=True'
         return jsonify(chat_id)
     return '<h1>Login</h1>'
@@ -109,8 +111,11 @@ def index():
 @app.route('/last_msg/',methods=['POST','GET'])
 @auth.login_required
 def test():
-    r='<h2>{}</h2>'.format(last_msg)
-    return r
+    global Login
+    if Login == True:
+        r='<h2>{}</h2>'.format(last_msg)
+        return r
+    return '<h1>Lock</h1>'
     #return '<h2>Test</h2>'
 
 def main():
