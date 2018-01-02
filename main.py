@@ -22,7 +22,7 @@ last_msg=''
 
 #https://api.telegram.org/bot521265983:AAFUSq8QQzLUURwmCgXeBCjhRThRvf9YVM0/setWebhook?url=https://vorovik.pythonanywhere.com/
 app = Flask(__name__)
-#app.debug = True
+app.debug = True
 sslify=SSLify(app)
 URL='https://api.telegram.org/bot{}/'.format(token)
 
@@ -95,7 +95,7 @@ def do_admin_login():
 
 
 @app.route('/webhook/',methods=['POST','GET'])
-def index():
+def webhook():
     if request.method=='POST':
         r = request.get_json()
         write_json(r)
