@@ -29,7 +29,7 @@ Articles = Articles()
 #https://api.telegram.org/bot521265983:AAFUSq8QQzLUURwmCgXeBCjhRThRvf9YVM0/setWebhook?url=https://vorovik.pythonanywhere.com/
 
 app = Flask(__name__)
-app.secret_key='morkovka18'
+#app.secret_key='morkovka18'
 app.debug = True
 sslify=SSLify(app)
 URL='https://api.telegram.org/bot{}/'.format(token)
@@ -130,7 +130,7 @@ def register():
         #Close connection
         cur.close()
         flash('You are now registered and can log in','success')
-        return redirect(url_for('/'))
+        return redirect(url_for('/register'))
         #return 'ok'
     return render_template('register.html', form=form)
 
