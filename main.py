@@ -103,7 +103,7 @@ def angularjs():
     return render_template('angularjs.html',articles=Articles)
 
 @app.route('/ladymarlene')
-def angularjs():
+def ladymarlene():
     return render_template('ladymarlene.html',articles=Articles)
 
 @app.route('/article/<string:id>/')
