@@ -130,8 +130,8 @@ def register():
         #Close connection
         cur.close()
         flash('You are now registered and can log in','success')
-        return redirect(url_for('/register'))
-        #return 'ok'
+        #return redirect(url_for('/register'))
+        return 'ok'
     return render_template('register.html', form=form)
 
 @app.route('/log')
