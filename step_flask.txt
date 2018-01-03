@@ -1,3 +1,16 @@
+AngularJS:
+      <html ng-app>
+        <head>
+          <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+        </head>
+
+        <div>
+          <label>Name:</label>
+          <input type="text" ng-model="yourName" placeholder="Enter a name here">
+          <hr>
+          <h1>Hello {{ '{{yourName}}' }}</h1>
+        </div>
+        
 1 create home.html+layout.html
 2 html+Tab
 3 https://www.bootstrapcdn.com/
@@ -24,6 +37,6 @@ CREATE TABLE users(id INT(11) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), ema
  SHOW TABLES;
  DESCRIBE users;
 
- pip install flask-mysqldb  # need mysql-server yum install mysql-server 
+ pip install flask-mysqldb  # need mysql-server yum install mysql-server
  pip install Flask-WTF
  pip install passlib
