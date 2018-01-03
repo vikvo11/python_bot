@@ -27,10 +27,20 @@ global last_msg
 last_msg=''
 Articles = Articles()
 #https://api.telegram.org/bot521265983:AAFUSq8QQzLUURwmCgXeBCjhRThRvf9YVM0/setWebhook?url=https://vorovik.pythonanywhere.com/
+
 app = Flask(__name__)
 app.debug = True
 sslify=SSLify(app)
 URL='https://api.telegram.org/bot{}/'.format(token)
+
+#Config mysql
+app.config['MYSQL_HOST']='vorovik.mysql.pythonanywhere-services.com'
+app.config['MYSQL_USER']='vorovik'
+app.config['MYSQL_PASSWORD']='cb.,fq12-'
+app.config['MYSQL_DB']='vorovik$vorovikapp'
+app.config['MYSQL_CURSORCLASS']='DictCursor'
+#init MySQL
+mysql=MySQL(app)
 
 def write_json(data,filename='answer.json'):
     with open(filename,'w') as f:
@@ -105,7 +115,21 @@ class RegisterForm(Form):
 def register():
     form = RegisterForm(request.form)
     if request.method =='POST' and form.validate():
-        return 'ok'
+        name = form.name.data
+        username = form.username.data
+        email = form.email.data
+        password = sha256_crypt.encrypt(str(form.password.data))
+        token = form.token.data
+        #Create cursor
+        cur = mysql.connection.cursor()
+        cur.execute("INSERT INTO users(name, email, username, password, token) VALUES(%s, %s, %s, %s, %s)",(name, email, username, password, token))
+        #Commit ot db
+        mysql.connection.commit()
+        #Close connection
+        cur.close()
+        flash('You are now registered and can log in','success')
+        return redirect(url_for('/'))
+        #return 'ok'
     return render_template('register.html', form=form)
 
 @app.route('/log')
