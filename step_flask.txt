@@ -1,4 +1,4 @@
-AngularJS:
+AngularJS: https://angularjs.org/  http://www.angularjshub.com/examples/eventhandlers/mouseevents/
       <html ng-app>
         <head>
           <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
@@ -10,7 +10,7 @@ AngularJS:
           <hr>
           <h1>Hello {{ '{{yourName}}' }}</h1>
         </div>
-        
+
 1 create home.html+layout.html
 2 html+Tab
 3 https://www.bootstrapcdn.com/
