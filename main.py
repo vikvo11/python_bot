@@ -3,6 +3,7 @@ from misck import token,chat_id_old
 #from flask import request
 from flask import jsonify
 from flask_sslify import SSLify
+from flask_caching import Cache
 
 from flask import Flask, flash, redirect, render_template, request, session, abort,url_for,logging
 from flask_mysqldb import MySQL
@@ -29,6 +30,7 @@ Articles = Articles()
 #https://api.telegram.org/bot521265983:AAFUSq8QQzLUURwmCgXeBCjhRThRvf9YVM0/setWebhook?url=https://vorovik.pythonanywhere.com/
 
 app = Flask(__name__)
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 #app.secret_key='morkovka18'
 app.config['SESSION_TYPE'] = 'memcached'
 app.config['SECRET_KEY'] = 'morkovka18'

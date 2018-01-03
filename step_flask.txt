@@ -13,9 +13,11 @@ AngularJS: https://angularjs.org/  http://www.angularjshub.com/examples/eventhan
 
 wget
 
-wget -r -k -l 10 -p -E -nc
+wget -r -k -l 10 -p -E -nc *
 
 https://sourceforge.net/projects/tumagcc/files/?source=navbar
+
+---> use url_for : <link rel="stylesheet" href="{{ url_for('static', filename='ladymarlene/css/style.css')}}" />
 
 1 create home.html+layout.html
 2 html+Tab
