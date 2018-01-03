@@ -10,6 +10,9 @@
   <body ng-app>
     {% include 'includes/_navbar.html' %}
 
+    <input type="text" ng-model="name">
+    Hello {{name}}
+
       <div class="container" style="padding-top:5rem">
         {% include 'includes/_messages.html'%}
         {%block body%}{% endblock %}
