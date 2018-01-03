@@ -35,7 +35,7 @@ cache = Cache(config={'CACHE_TYPE': 'filesystem', 'CACHE_DIR': '/tmp'})
 #app.secret_key='morkovka18'
 app.config['SESSION_TYPE'] = 'memcached'
 app.config['SECRET_KEY'] = 'morkovka18'
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 60
+#app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 60
 app.debug = True
 sslify=SSLify(app)
 URL='https://api.telegram.org/bot{}/'.format(token)
@@ -107,6 +107,7 @@ def angularjs():
     return render_template('angularjs.html',articles=Articles)
 
 @app.route('/ladymarlene')
+@cache.cached(50)   
 def ladymarlene():
     return render_template('ladymarlene/index.html',articles=Articles)
 
