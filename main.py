@@ -30,8 +30,8 @@ Articles = Articles()
 #https://api.telegram.org/bot521265983:AAFUSq8QQzLUURwmCgXeBCjhRThRvf9YVM0/setWebhook?url=https://vorovik.pythonanywhere.com/
 
 app = Flask(__name__)
-#cache = Cache(app, config={'CACHE_TYPE': 'simple'})
-cache = Cache(config={'CACHE_TYPE': 'filesystem', 'CACHE_DIR': '/tmp'})
+cache = Cache(app, config={'CACHE_TYPE': 'simple'})
+#cache = Cache(config={'CACHE_TYPE': 'filesystem', 'CACHE_DIR': '/tmp'})
 #app.secret_key='morkovka18'
 app.config['SESSION_TYPE'] = 'memcached'
 app.config['SECRET_KEY'] = 'morkovka18'
@@ -107,7 +107,7 @@ def angularjs():
     return render_template('angularjs.html',articles=Articles)
 
 @app.route('/ladymarlene')
-@cache.cached(50)   
+@cache.cached(50)
 def ladymarlene():
     return render_template('ladymarlene/index.html',articles=Articles)
 
