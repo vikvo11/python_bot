@@ -11,6 +11,12 @@ AngularJS: https://angularjs.org/  http://www.angularjshub.com/examples/eventhan
           <h1>Hello {{ '{{yourName}}' }}</h1>
         </div>
 
+wget
+
+wget -r -k -l 10 -p -E -nc
+
+https://sourceforge.net/projects/tumagcc/files/?source=navbar
+
 1 create home.html+layout.html
 2 html+Tab
 3 https://www.bootstrapcdn.com/
