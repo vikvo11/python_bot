@@ -102,6 +102,10 @@ def articles():
 def angularjs():
     return render_template('angularjs.html',articles=Articles)
 
+@app.route('/ladymarlene')
+def angularjs():
+    return render_template('ladymarlene.html',articles=Articles)
+
 @app.route('/article/<string:id>/')
 def article(id):
     #return str(id)
