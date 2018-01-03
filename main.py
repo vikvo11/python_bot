@@ -104,7 +104,7 @@ def angularjs():
 
 @app.route('/ladymarlene')
 def ladymarlene():
-    return render_template('\ladymarlene\index.html',articles=Articles)
+    return render_template('ladymarlene/index.html',articles=Articles)
 
 @app.route('/article/<string:id>/')
 def article(id):
