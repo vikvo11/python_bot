@@ -122,6 +122,7 @@ def register():
         token = form.token.data
         #Create cursor
         cur = mysql.connection.cursor()
+        #Execute query
         cur.execute("INSERT INTO users(name, email, username, password, token) VALUES(%s, %s, %s, %s, %s)",(name, email, username, password, token))
         #Commit ot db
         mysql.connection.commit()
@@ -188,5 +189,6 @@ def main():
 
 
 if __name__ =='__main__':
+    app.secret_key='morkovka18'
     main()
     #app.run('0.0.0.0',port=5000)
