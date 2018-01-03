@@ -18,6 +18,10 @@ wget -r -k -l 10 -p -E -nc *
 https://sourceforge.net/projects/tumagcc/files/?source=navbar
 
 ---> use url_for : <link rel="stylesheet" href="{{ url_for('static', filename='ladymarlene/css/style.css')}}" />
+---> CASH :
+      pip install Flask-Caching
+      from flask_caching import Cache
+
 
 1 create home.html+layout.html
 2 html+Tab
