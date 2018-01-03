@@ -98,6 +98,10 @@ def about():
 def articles():
     return render_template('articles.html',articles=Articles)
 
+@app.route('/angularjs')
+def angularjs():
+    return render_template('angularjs.html',articles=Articles)
+
 @app.route('/article/<string:id>/')
 def article(id):
     #return str(id)
