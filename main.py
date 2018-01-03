@@ -3,7 +3,7 @@ from misck import token,chat_id_old
 #from flask import request
 from flask import jsonify
 from flask_sslify import SSLify
-from flask_caching import Cache
+#from flask_caching import Cache
 
 from flask import Flask, flash, redirect, render_template, request, session, abort,url_for,logging
 from flask_mysqldb import MySQL
@@ -30,9 +30,8 @@ Articles = Articles()
 #https://api.telegram.org/bot521265983:AAFUSq8QQzLUURwmCgXeBCjhRThRvf9YVM0/setWebhook?url=https://vorovik.pythonanywhere.com/
 
 app = Flask(__name__)
-cache = Cache(app, config={'CACHE_TYPE': 'simple'})
-#cache = Cache(app, config={'CACHE_TYPE': 'memcached'})
-#cache = Cache(config={'CACHE_TYPE': 'filesystem', 'CACHE_DIR': '/tmp'})
+#cache = Cache(app, config={'CACHE_TYPE': 'simple'})
+
 #app.secret_key='morkovka18'
 app.config['SESSION_TYPE'] = 'memcached'
 app.config['SECRET_KEY'] = 'morkovka18'
@@ -108,9 +107,9 @@ def angularjs():
     return render_template('angularjs.html',articles=Articles)
 
 @app.route('/ladymarlene')
-@cache.cached(60)
+#@cache.cached(60)
 def ladymarlene():
-    return render_template('ladymarlene/index.html',articles=Articles)
+    return render_template('ladymarlene/ladymarlene.html',articles=Articles)
 
 @app.route('/article/<string:id>/')
 def article(id):
