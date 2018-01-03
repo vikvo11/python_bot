@@ -31,8 +31,8 @@ Articles = Articles()
 
 app = Flask(__name__)
 #cache = Cache(app, config={'CACHE_TYPE': 'simple'})
-cache = Cache(app, config={'CACHE_TYPE': 'memcached'})
-#cache = Cache(config={'CACHE_TYPE': 'filesystem', 'CACHE_DIR': '/tmp'})
+#cache = Cache(app, config={'CACHE_TYPE': 'memcached'})
+cache = Cache(config={'CACHE_TYPE': 'filesystem', 'CACHE_DIR': '/tmp'})
 #app.secret_key='morkovka18'
 app.config['SESSION_TYPE'] = 'memcached'
 app.config['SECRET_KEY'] = 'morkovka18'
