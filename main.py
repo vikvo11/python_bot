@@ -29,6 +29,7 @@ Articles = Articles()
 #https://api.telegram.org/bot521265983:AAFUSq8QQzLUURwmCgXeBCjhRThRvf9YVM0/setWebhook?url=https://vorovik.pythonanywhere.com/
 
 app = Flask(__name__)
+app.secret_key='morkovka18'
 app.debug = True
 sslify=SSLify(app)
 URL='https://api.telegram.org/bot{}/'.format(token)
@@ -189,6 +190,6 @@ def main():
 
 
 if __name__ =='__main__':
-    app.secret_key='morkovka18'
+    #app.secret_key='morkovka18'
     main()
     #app.run('0.0.0.0',port=5000)
