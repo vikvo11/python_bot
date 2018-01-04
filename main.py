@@ -169,7 +169,7 @@ def login():
 
             #Compare Passwords
             if sha256_crypt.verify(password_candidate,password):
-                app.logger.info('PASSWORD MATCHED!')
+                app.logger.info('PASSWORD MATCHED TEST!')
                 flash('PASSWORD MATCHED','success')
             else:
                 app.logger.info('PASSWORD NOT MATCHED!')
