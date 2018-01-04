@@ -172,7 +172,7 @@ def login():
                 app.logger.info('PASSWORD MATCHED!')
                 flash('PASSWORD MATCHED','success')
             else:
-                app.logger.info('PASSWORD NOT MATCHED')
+                app.logger.info('PASSWORD NOT MATCHED!')
                 flash('PASSWORD NOT MATCHED','danger')
         else:
             app.logger.info('NO USER')
