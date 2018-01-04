@@ -170,10 +170,14 @@ def login():
             #Compare Passwords
             if sha256_crypt.verify(password_candidate,password):
                 app.logger.info('PASSWORD MATCHED')
+                flash('PASSWORD MATCHED','success')
             else:
                 app.logger.info('PASSWORD NOT MATCHED')
+                flash('PASSWORD NOT MATCHED','alert')
         else:
             app.logger.info('NO USER')
+            flash('NO USER','alert')
+
 
         cur.close()
 

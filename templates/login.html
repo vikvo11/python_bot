@@ -4,6 +4,8 @@
 <p>You're logged in already!</p>
 {% else %}
 
+{% include 'includes/_messages.html'%}
+{%block body%}{% endblock %}
 
 <form action="/login" method="POST">
 	<div class="login">
