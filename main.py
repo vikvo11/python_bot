@@ -97,7 +97,7 @@ def index():
 @app.route('/about')
 def about():
     return render_template('about.html')
-
+#Articles
 @app.route('/articles')
 def articles():
     return render_template('articles.html',articles=Articles)
@@ -110,12 +110,12 @@ def angularjs():
 #@cache.cached(60)
 def ladymarlene():
     return render_template('ladymarlene/ladymarlene.html',articles=Articles)
-
+#Single articl
 @app.route('/article/<string:id>/')
 def article(id):
     #return str(id)
     return render_template('article.html',id=id)
-
+#RegisterFromClass
 class RegisterForm(Form):
     name = StringField('Name',[validators.length(min=1, max=50)])
     username = StringField('Username',[validators.length(min=4, max=25)])
@@ -126,7 +126,7 @@ class RegisterForm(Form):
         validators.EqualTo('confirm', message='Password do not match')
     ])
     confirm = PasswordField('Confirm Password')
-
+#User register
 @app.route('/register', methods=['GET','POST'])
 def register():
     form = RegisterForm(request.form)
@@ -196,10 +196,18 @@ def login():
 
     return render_template('login.html')
 
+#Logout
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash('You are now logged out','success')
+    return redirect(url_for('login'))
+
+#Dashbord
 @app.route('/dashbord.html')
 def dashbord():
     return render_template('dashbord.html',msg=msg)
-    
+
 @app.route('/log')
 def home():
     global login
