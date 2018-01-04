@@ -235,6 +235,18 @@ def add_article():
     form = ArticleForm(request.form)
     if request.method =='POST' and form.validate():
         title = form.title.data
+        body = form.body.data
+        #Create cursor
+        cur = mysql.connection.cursor()
+
+        #Execute query
+        cur.execute("INSERT INTO articles(title,body) VALUES(%s,%s)",(title,body))
+        #Commit ot db
+        mysql.connection.commit()
+        #Close connection
+        cur.close()
+        flash('You are now added a new one article','success')
+
         return 'ok'+str(title)
 
     return render_template('add_article.html',form=form)
