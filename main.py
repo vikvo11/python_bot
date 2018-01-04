@@ -234,8 +234,8 @@ def dashbord():
 def add_article():
     form = ArticleForm(request.form)
     if request.methods =='POST' and form.validate():
-        name = form.name.data
-        return 'ok'
+        title = form.title.data
+        return 'ok'+str(title)
 
     return render_template('add_article.html',form=form)
 
