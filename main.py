@@ -240,7 +240,7 @@ def add_article():
         cur = mysql.connection.cursor()
 
         #Execute query
-        cur.execute("INSERT INTO articles(title,body) VALUES(%s,%s)",(title,body))
+        cur.execute("INSERT INTO articles(title,author,body) VALUES(%s,%s,%s)",(title,session['username'],body))
         #Commit ot db
         mysql.connection.commit()
         #Close connection
