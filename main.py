@@ -174,7 +174,7 @@ def login():
             else:
                 #app.logger.info('PASSWORD NOT MATCHED')
                 #flash('PASSWORD NOT MATCHED!','danger')
-                error='PASSWORD NOT MATCHED!'
+                error='Password not matched!'
                 return render_template('login.html',error=error)
         else:
             #app.logger.info('NO USER')
