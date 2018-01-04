@@ -233,7 +233,7 @@ def dashbord():
 @is_logged_in
 def add_article():
     form = ArticleForm(request.form)
-    if request.methods =='POST' and form.validate():
+    if request.method =='POST' and form.validate():
         title = form.title.data
         return 'ok'+str(title)
 
