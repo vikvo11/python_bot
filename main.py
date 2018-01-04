@@ -246,7 +246,7 @@ def add_article():
         cur.close()
         flash('You are now added a new one article','success')
 
-        return redirect(url_for('add_article'))
+        return redirect(url_for('dashbord'))
 
     return render_template('add_article.html',form=form)
 
