@@ -241,7 +241,7 @@ def dashbord():
         return render_template('dashbord.html', msg=msg)
     #Close connection
     cur.close()
-    #return render_template('dashbord.html')
+    return render_template('dashbord.html')
 
 
 #Add_articles
