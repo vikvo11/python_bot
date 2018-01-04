@@ -145,9 +145,40 @@ def register():
         #Close connection
         cur.close()
         flash('You are now registered and can log in','success')
-        return redirect(url_for('index'))
+        return redirect(url_for('login'))
         #return 'ok'
     return render_template('register.html', form=form)
+#User Login
+@app.route('/login',methods=['GET','POST'])
+def login():
+    if request.method == 'POST':
+        #Get Form fields
+        username = request.form['username']
+        password_candidate = request.form['password']
+
+        #Create a Cursor
+        cur = mysql.connection.cursor()
+
+        #Get user by Username
+        result = cur.execute("SELECT * FROM users WHERE username=%s",[username])
+
+        if result >0 :
+            #Get stored hash
+            data = cur. fetchone()
+            password = data['password']
+
+            #Compare Passwords
+            if sha256_crypt.verify(password_candidate,password):
+                app.logger.info('PASSWORD MATCHED')
+            else:
+                app.logger.info('PASSWORD NOT MATCHED')
+        else:
+            app.logger.info('NO USER')
+
+        cur.close()
+
+    return render_template('login.html')
+
 
 @app.route('/log')
 def home():
