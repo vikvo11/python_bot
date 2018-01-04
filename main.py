@@ -173,10 +173,10 @@ def login():
                 flash('PASSWORD MATCHED','success')
             else:
                 app.logger.info('PASSWORD NOT MATCHED')
-                flash('PASSWORD NOT MATCHED','alert')
+                flash('PASSWORD NOT MATCHED','danger')
         else:
             app.logger.info('NO USER')
-            flash('NO USER','alert')
+            flash('NO USER','danger')
 
 
         cur.close()
