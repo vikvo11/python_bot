@@ -236,7 +236,8 @@ def dashbord():
     articles = cur.fetchall()
 
     if result > 0:
-        return 'ok'
+        #return 'ok'
+        return render_template('dashboard.html')
         #return render_template('dashboard.html', articles=articles)
     else:
         msg = 'No Articles Found'
