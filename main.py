@@ -196,6 +196,17 @@ def login():
 
     return render_template('login.html')
 
+#Check if user logged in
+def is_logged_in(f):
+    @wraps(f)
+    def wrap(*args,**kwargs):
+        if 'logged_in' in session:
+            return f(*args,**kwargs)
+        else:
+            flash('Unauthorized, Please login', 'danger')
+            return redirect(url_for('login'))
+    return wrap
+
 #Logout
 @app.route('/logout')
 def logout():
@@ -205,18 +216,11 @@ def logout():
 
 #Dashbord
 @app.route('/dashbord')
+@is_logged_in
 def dashbord():
     msg='Success'
     return render_template('dashbord.html',msg=msg)
 
-@app.route('/log')
-def home():
-    global login
-    login=False
-    if not session.get('logged_in'):
-        return render_template('login.html')
-    else:
-        return "Hello Boss!"
 
 @app.route('/login', methods=['POST','GET'])
 def do_admin_login():
