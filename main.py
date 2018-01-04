@@ -232,7 +232,7 @@ def dashbord():
 @app.route('/add_article')
 @is_logged_in
 def add_article():
-    form = ArticleFormClass(request.form)
+    form = ArticleForm(request.form)
     return render_template('add_article.html',form=form)
 
 @app.route('/login', methods=['POST','GET'])
