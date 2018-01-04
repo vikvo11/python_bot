@@ -237,11 +237,11 @@ def dashbord():
 
     if result > 0:
         #return 'ok'
-        return render_template('dashboard.html')
+        return render_template('dashbord.html', articles=articles)
         #return render_template('dashboard.html', articles=articles)
     else:
         msg = 'No Articles Found'
-        return render_template('dashboard.html', msg=msg)
+        return render_template('dashbord.html', msg=msg)
     # Close connection
     cur.close()
 
