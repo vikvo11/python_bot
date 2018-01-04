@@ -57,4 +57,5 @@ CREATE TABLE users(id INT(11) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), ema
  ssh.pythonanywhere.com
     ~/.ssh/authorized_keys
 
-    - ssh vorovik@ssh.pythonanywhere.com -P vorovik 0Rapid369
+    - - ssh vorovik@ssh.pythonanywhere.com
+    Jenkins SSH Plugin
