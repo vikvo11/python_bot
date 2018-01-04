@@ -8,7 +8,7 @@ from sys import argv
 import extras
 
 class Extras:
-    name = "high-cyril"
+    name = "parelaod"
     passpath = os.environ['HOME']+"/.config/{0}/passkey".format(name)
 
 extras = Extras()
