@@ -8,7 +8,7 @@ from sys import argv
 import extras
 
 class Extras:
-    name = "parelaod"
+    name = "pareload"
     passpath = os.environ['HOME']+"/.config/{0}/passkey".format(name)
 
 extras = Extras()
