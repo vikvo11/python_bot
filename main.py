@@ -229,10 +229,14 @@ def logout():
 def dashbord():
     return render_template('dashbord.html')
 #Add_articles
-@app.route('/add_article')
+@app.route('/add_article', methods=['GET','POST'])
 @is_logged_in
 def add_article():
     form = ArticleForm(request.form)
+    if request.methods =='POST' and form.validate():
+        name = form.name.data
+        return 'ok'
+
     return render_template('add_article.html',form=form)
 
 @app.route('/login', methods=['POST','GET'])
