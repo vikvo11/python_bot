@@ -101,7 +101,23 @@ def about():
 #Articles
 @app.route('/articles')
 def articles():
-    return render_template('articles.html',articles=Articles)
+    # Create cursor
+    cur = mysql.connection.cursor()
+
+    # Get articles
+    result = cur.execute("SELECT * FROM articles")
+
+    articles = cur.fetchall()
+
+    if result > 0:
+        #return 'ok'
+        return render_template('articles.html', articles=articles)
+        #return render_template('dashboard.html', articles=articles)
+    else:
+        msg = 'No Articles Found'
+        return render_template('articles.html', msg=msg)
+    # Close connection
+    cur.close()
 
 @app.route('/angularjs')
 def angularjs():
