@@ -7,6 +7,12 @@ from sys import argv
 #from pareload.extras import extras
 import extras
 
+class Extras:
+    name = "high-cyril"
+    passpath = os.environ['HOME']+"/.config/{0}/passkey".format(name)
+
+extras = Extras()
+
 passfile = open(extras.passpath)
 
 
