@@ -206,6 +206,7 @@ def logout():
 #Dashbord
 @app.route('/dashbord')
 def dashbord():
+    msg='Success'
     return render_template('dashbord.html',msg=msg)
 
 @app.route('/log')
