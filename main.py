@@ -204,7 +204,7 @@ def logout():
     return redirect(url_for('login'))
 
 #Dashbord
-@app.route('/dashbord.html')
+@app.route('/dashbord')
 def dashbord():
     return render_template('dashbord.html',msg=msg)
 
