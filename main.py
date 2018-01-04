@@ -238,7 +238,6 @@ def add_article():
         body = form.body.data
         #Create cursor
         cur = mysql.connection.cursor()
-
         #Execute query
         cur.execute("INSERT INTO articles(title,author,body) VALUES(%s,%s,%s)",(title,session['username'],body))
         #Commit ot db
@@ -247,7 +246,7 @@ def add_article():
         cur.close()
         flash('You are now added a new one article','success')
 
-        return 'ok'+str(title)
+        return render_template('add_article.html',form=form)
 
     return render_template('add_article.html',form=form)
 
