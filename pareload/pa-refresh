@@ -5,7 +5,7 @@ import time
 import os
 import sys
 
-from pareload.extras import extras,VERSION
+#from pareload.extras import extras,VERSION
 
 VERSION = '1.00'
 
