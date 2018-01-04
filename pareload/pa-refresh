@@ -10,7 +10,7 @@ import sys
 VERSION = '1.00'
 
 class Extras:
-    name = "high-cyril"
+    name = "pareload"
     passpath = os.environ['HOME']+"/.config/{0}/passkey".format(name)
 
 extras = Extras()
