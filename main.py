@@ -176,9 +176,9 @@ def login():
                 session['logged_in']= True
                 session['username'] = username
 
-                msg='You are now logged in -success'
+                flash('You are now logged in','success')
                 #return render_template('dashbord.html',msg=msg)
-                return redirect(url_for('dashbord',msg=msg))
+                return redirect(url_for('dashbord'))
                 #flash('PASSWORD MATCHED!','success')
             else:
                 #app.logger.info('PASSWORD NOT MATCHED')
@@ -220,8 +220,7 @@ def logout():
 @app.route('/dashbord')
 @is_logged_in
 def dashbord():
-    msg='Success'
-    return render_template('dashbord.html',msg=msg)
+    return render_template('dashbord.html')
 
 
 @app.route('/login', methods=['POST','GET'])
