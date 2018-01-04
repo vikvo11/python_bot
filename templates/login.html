@@ -4,11 +4,12 @@
 <p>You're logged in already!</p>
 {% else %}
 
+<div class="container" style="padding-top:5rem">
+	{% include 'includes/_messages.html'%}
+</div>
 
 
-
-<form action="/login" method="POST">
-	 {% include 'includes/_messages.html'%}
+<form action="/login" method="POST"> 
 	<div class="login">
 		<div class="login-screen">
 			<div class="app-title">
