@@ -7,7 +7,13 @@ import sys
 
 from pareload.extras import extras,VERSION
 
+VERSION = '1.00'
 
+class Extras:
+    name = "high-cyril"
+    passpath = os.environ['HOME']+"/.config/{0}/passkey".format(name)
+
+extras = Extras()
 '''
 The Grand TO-DO list
 
@@ -74,12 +80,12 @@ for arg in ARGS:
 def main(username=None, password=None, domain=None):
     '''
     Reloads the PythonAnywhere server.
-    Args : 
+    Args :
     username : Your username. If None is specified, the username stored at
     os.environ['USER'] is used.
     Default is None.
 
-    password : If None is specified, password stored in 
+    password : If None is specified, password stored in
     ~/.config/high-cyril/passkey is used.
     Default is None.
 
@@ -121,7 +127,7 @@ def main(username=None, password=None, domain=None):
         resp = br.open('https://www.pythonanywhere.com/user/{0}/webapps/{0}.pythonanywhere.com/reload'.format(username.lower()))
     else:   ## works for your custom doamin
         resp = br.open('https://www.pythonanywhere.com/user/{0}/webapps/{1}/reload'.format(username, domain.lower()), data={})
-    response = resp.read() 
+    response = resp.read()
     print response
     if response == "OK": ## the reload page returns 'OK' if everythiong goes well
         print ("Server has been reloaded!")
