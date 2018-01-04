@@ -196,7 +196,10 @@ def login():
 
     return render_template('login.html')
 
-
+@app.route('/dashbord.html')
+def dashbord():
+    return render_template('dashbord.html',msg=msg)
+    
 @app.route('/log')
 def home():
     global login
