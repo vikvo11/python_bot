@@ -227,7 +227,23 @@ def logout():
 @app.route('/dashbord')
 @is_logged_in
 def dashbord():
-    return render_template('dashbord.html')
+    #Create cursor
+    cur = mysql.connection.cursor()
+    #Get Articles
+    result = cur.execute("SELECT * FROM articles")
+
+    articles = cur.fetchall()
+
+    if resul >0:
+        return render_template('dashbord.html', articles=articles)
+    else:
+        msg='No Articels found'
+        return render_template('dashbord.html', msg=msg)
+    #Close connection
+    cur.close()
+    #return render_template('dashbord.html')
+
+
 #Add_articles
 @app.route('/add_article', methods=['GET','POST'])
 @is_logged_in
