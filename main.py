@@ -170,15 +170,20 @@ def login():
             #Compare Passwords
             if sha256_crypt.verify(password_candidate,password):
                 app.logger.info('PASSWORD MATCHED')
-                flash('PASSWORD MATCHED!','success')
+                #flash('PASSWORD MATCHED!','success')
             else:
-                app.logger.info('PASSWORD NOT MATCHED')
-                flash('PASSWORD NOT MATCHED!','danger')
+                #app.logger.info('PASSWORD NOT MATCHED')
+                #flash('PASSWORD NOT MATCHED!','danger')
+                error='PASSWORD NOT MATCHED!'
+                return render_template('login.html',error=error)
         else:
-            app.logger.info('NO USER')
-            flash('NO USER!','danger')
+            #app.logger.info('NO USER')
+            #flash('NO USER!','danger')
+            error='Username not found'
+            return render_template('login.html',error=error)
 
-
+        msg='success'
+        return render_template('login.html',msg=msg)
         cur.close()
 
     return render_template('login.html')
