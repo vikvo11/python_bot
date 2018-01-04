@@ -52,4 +52,8 @@ CREATE TABLE users(id INT(11) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), ema
  pip install flask-mysqldb  # need mysql-server yum install mysql-server
  pip install Flask-WTF
  pip install passlib
- 
+
+ ---> SSH ssh <username>@ssh.pythonanywhere.com
+ ssh.pythonanywhere.com
+    ~/.ssh/authorized_keys
+    
