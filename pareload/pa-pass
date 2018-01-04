@@ -4,7 +4,8 @@ import os
 import sys
 import getpass
 from sys import argv
-from pareload.extras import extras
+#from pareload.extras import extras
+import extras
 
 passfile = open(extras.passpath)
 
