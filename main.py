@@ -11,7 +11,7 @@ from flask_mysqldb import MySQL
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators
 from passlib.hash import sha256_crypt
 
-from data import Articles
+#from data import Articles
 from flask.ext.httpauth import HTTPBasicAuth
 auth = HTTPBasicAuth()
 
@@ -27,7 +27,7 @@ global login
 login=False
 global last_msg
 last_msg=''
-Articles = Articles()
+#Articles = Articles()
 #https://api.telegram.org/bot521265983:AAFUSq8QQzLUURwmCgXeBCjhRThRvf9YVM0/setWebhook?url=https://vorovik.pythonanywhere.com/
 
 app = Flask(__name__)
@@ -127,11 +127,20 @@ def angularjs():
 #@cache.cached(60)
 def ladymarlene():
     return render_template('ladymarlene/ladymarlene.html',articles=Articles)
+
 #Single articl
 @app.route('/article/<string:id>/')
 def article(id):
-    #return str(id)
-    return render_template('article.html',id=id)
+    # Create cursor
+    cur = mysql.connection.cursor()
+
+    # Get articl
+    result = cur.execute("SELECT * FROM articles WHER id=%s",[id])
+
+    article = cur.fetchone()
+    return render_template('article.html',article=article)
+
+
 #RegisterFormClass
 class RegisterForm(Form):
     name = StringField('Name',[validators.length(min=1, max=50)])
