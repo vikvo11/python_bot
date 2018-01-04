@@ -149,7 +149,7 @@ def register():
         #return 'ok'
     return render_template('register.html', form=form)
 #User Login
-@app.route('/login1',methods=['GET','POST'])
+@app.route('/login',methods=['GET','POST'])
 def login():
     if request.method == 'POST':
         #Get Form fields
