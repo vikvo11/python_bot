@@ -116,7 +116,7 @@ def ladymarlene():
 def article(id):
     #return str(id)
     return render_template('article.html',id=id)
-#RegisterFromClass
+#RegisterFormClass
 class RegisterForm(Form):
     name = StringField('Name',[validators.length(min=1, max=50)])
     username = StringField('Username',[validators.length(min=4, max=25)])
@@ -127,6 +127,14 @@ class RegisterForm(Form):
         validators.EqualTo('confirm', message='Password do not match')
     ])
     confirm = PasswordField('Confirm Password')
+
+#ArticleFormClass
+#RegisterFromClass
+class ArticleForm(Form):
+    name = StringField('Title',[validators.length(min=1, max=50)])
+    username = TextAreaField('Body',[validators.length(min=30)])
+
+
 #User register
 @app.route('/register', methods=['GET','POST'])
 def register():
