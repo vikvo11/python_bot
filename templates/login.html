@@ -1,6 +1,7 @@
-
+<link rel="stylesheet" href="/static/style.css" type="text/css">
+{% extends 'layout.html' %}
 {% block body %}
-{% include 'includes/_messages.html'%}
+
 
 {% if session['logged_in'] %}
 <p>You're logged in already!</p>
