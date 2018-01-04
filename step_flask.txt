@@ -53,7 +53,8 @@ CREATE TABLE users(id INT(11) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), ema
  pip install Flask-WTF
  pip install passlib
 
- ---> SSH ssh <username>@ssh.pythonanywhere.com
+ ---> SSH ssh vorovik@ssh.pythonanywhere.com
  ssh.pythonanywhere.com
     ~/.ssh/authorized_keys
-    
+
+    - ssh vorovik@ssh.pythonanywhere.com -P vorovik 0Rapid369
