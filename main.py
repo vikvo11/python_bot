@@ -129,10 +129,9 @@ class RegisterForm(Form):
     confirm = PasswordField('Confirm Password')
 
 #ArticleFormClass
-#RegisterFromClass
 class ArticleForm(Form):
-    name = StringField('Title',[validators.length(min=1, max=50)])
-    username = TextAreaField('Body',[validators.length(min=30)])
+    title = StringField('Title',[validators.length(min=1, max=50)])
+    body = TextAreaField('Body',[validators.length(min=30)])
 
 
 #User register
@@ -229,7 +228,12 @@ def logout():
 @is_logged_in
 def dashbord():
     return render_template('dashbord.html')
-
+#Add_articles
+@app.route('/add_article')
+@is_logged_in
+def add_article():
+    form = ArticleFormClass(request.form)
+    return render_template('add_article.html',form=form)
 
 @app.route('/login', methods=['POST','GET'])
 def do_admin_login():
