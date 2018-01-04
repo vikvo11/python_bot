@@ -169,22 +169,30 @@ def login():
 
             #Compare Passwords
             if sha256_crypt.verify(password_candidate,password):
-                app.logger.info('PASSWORD MATCHED')
+                #app.logger.info('PASSWORD MATCHED')
+
+                #Passed
+                session['logged_in']= True
+                session['username'] = username
+
+                msg='You are now logged in -success'
+                return render_template('dashbord.html',msg=msg)
                 #flash('PASSWORD MATCHED!','success')
             else:
                 #app.logger.info('PASSWORD NOT MATCHED')
                 #flash('PASSWORD NOT MATCHED!','danger')
-                error='Password not matched!'
+                error='Invalid login'
                 return render_template('login.html',error=error)
+            #Closed connection
+            cur.close()
         else:
             #app.logger.info('NO USER')
             #flash('NO USER!','danger')
             error='Username not found'
             return render_template('login.html',error=error)
 
-        msg='success'
-        return render_template('login.html',msg=msg)
-        cur.close()
+
+        #cur.close()
 
     return render_template('login.html')
 
