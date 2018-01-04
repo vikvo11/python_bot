@@ -177,7 +177,8 @@ def login():
                 session['username'] = username
 
                 msg='You are now logged in -success'
-                return render_template('dashbord.html',msg=msg)
+                #return render_template('dashbord.html',msg=msg)
+                return redirect(url_for('dashbord',msg=msg))
                 #flash('PASSWORD MATCHED!','success')
             else:
                 #app.logger.info('PASSWORD NOT MATCHED')
