@@ -4,6 +4,7 @@ from misck import token,chat_id_old
 from flask import jsonify
 from flask_sslify import SSLify
 #from flask_caching import Cache
+from functools import wraps
 
 from flask import Flask, flash, redirect, render_template, request, session, abort,url_for,logging
 from flask_mysqldb import MySQL
