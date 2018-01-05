@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 {%block body%}
   <h1>{{article.title}}</h1>
-  <small>Writen by {{articele.author}} on {{article.date}}</small>
+  <small>Writen by {{article.author}} on {{article.date}}</small>
   <hr>
   <div>
     {{article.body | safe}}
