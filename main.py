@@ -135,7 +135,7 @@ def article(id):
     cur = mysql.connection.cursor()
 
     # Get articl
-    result = cur.execute("SELECT * FROM articles WHER id=%s",[id])
+    result = cur.execute("SELECT * FROM articles WHERE id=%s",[id])
 
     article = cur.fetchone()
     return render_template('article.html',article=article)
