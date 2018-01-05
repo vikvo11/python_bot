@@ -3,8 +3,8 @@
 <div class ="jumbotron text-center">
   <h1>Welcome to Vorovik_app</h1>
   <p class ="lead">This App will help you to send messages from DB to Telegram</p>
-  {{% if session.logged_in == NULL %}}
-    <a href="/register" class="btn btn-primary">Register</a>
+  {{% if session.logged_in == NULL: %}}
+    <a href="/register" class="btn btn-primary btn-lg">Register</a>
     <a href="/login" class="btn btn-success">Login</a>
   {{% endif %}}
 </div>
