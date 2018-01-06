@@ -22,8 +22,8 @@ import json # JSON modules
 import re # Regular expression - https://pythex.org/
 
 #auth = HTTPBasicAuth()
-from HTTP_basic_Auth import auth
-auth =auth()
+#from HTTP_basic_Auth import auth
+#auth =auth()
 #
 global login
 login=False
