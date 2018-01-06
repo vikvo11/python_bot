@@ -8,7 +8,7 @@ users = {
 def auth():
     auth = HTTPBasicAuth()
     @auth.get_password
-    def get_pw(self,username):
+    def get_pw(username):
         if username in users:
             return users.get(username)
         return None
