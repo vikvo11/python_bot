@@ -13,4 +13,4 @@ def auth():
             return users.get(username)
         return None
     return auth
-auth =auth()
+#auth =auth()
