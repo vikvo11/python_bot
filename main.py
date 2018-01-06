@@ -1,13 +1,14 @@
 
 #IMPORT MODULES
-# Misck.py - config for telegram_bot
-from misck import token,chat_id_old
+
+from misck import token,chat_id_old # Misck.py - config for telegram_bot
+
 #<Start -Flask modules:>
 from flask import jsonify #For response in /webhook
 from flask_sslify import SSLify #For use HTTPS
 from flask import Flask, flash, redirect, render_template, request, session, abort,url_for,logging #For work with HTTP and templates
 from flask_mysqldb import MySQL #For connect to MySQL DB
-from flask.ext.httpauth import HTTPBasicAuth # For HTTP basic auth
+#from flask.ext.httpauth import HTTPBasicAuth # For HTTP basic auth
 #<End -Flask modules>
 
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators  # Forms for create HTML fields
@@ -16,16 +17,14 @@ from functools import wraps # For lock access
 
 #from data import Articles
 
-auth = HTTPBasicAuth()
+import requests # For HTTP requests
+import json # JSON modules
+import re # Regular expression - https://pythex.org/
 
-
-
-
-
-import requests
-import json
-import re
-
+#auth = HTTPBasicAuth()
+from HTTP_basic_Auth import auth
+auth =auth()
+#
 global login
 login=False
 global last_msg
