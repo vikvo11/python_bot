@@ -24,7 +24,7 @@ import re # Regular expression - https://pythex.org/
 #auth = HTTPBasicAuth()
 
 #from HTTP_basic_Auth import auth
-import HTTP_basic_Auth
+from HTTP_basic_Auth import all
 auth =auth()
 
 global login
