@@ -1,18 +1,21 @@
-#from flask import Flask
-from misck import token,chat_id_old
-#from flask import request
-from flask import jsonify
-from flask_sslify import SSLify
-#from flask_caching import Cache
-from functools import wraps
 
-from flask import Flask, flash, redirect, render_template, request, session, abort,url_for,logging
-from flask_mysqldb import MySQL
-from wtforms import Form, StringField, TextAreaField, PasswordField, validators
-from passlib.hash import sha256_crypt
+#IMPORT MODULES
+# Misck.py - config for telegram_bot
+from misck import token,chat_id_old
+#<Start -Flask modules:>
+from flask import jsonify #For response in /webhook
+from flask_sslify import SSLify #For use HTTPS
+from flask import Flask, flash, redirect, render_template, request, session, abort,url_for,logging #For work with HTTP and templates
+from flask_mysqldb import MySQL #For connect to MySQL DB
+from flask.ext.httpauth import HTTPBasicAuth # For HTTP basic auth
+#<End -Flask modules>
+
+from wtforms import Form, StringField, TextAreaField, PasswordField, validators  # Forms for create HTML fields
+from passlib.hash import sha256_crypt # For Password cashing
+from functools import wraps # For lock access
 
 #from data import Articles
-from flask.ext.httpauth import HTTPBasicAuth
+
 auth = HTTPBasicAuth()
 
 
