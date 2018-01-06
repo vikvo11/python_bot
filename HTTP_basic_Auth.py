@@ -11,5 +11,5 @@ def auth():
     def get_pw(self,username):
         if username in users:
             return users.get(username)
-    return None
-        return auth
+        return None
+    return auth
