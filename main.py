@@ -22,8 +22,8 @@ import json # JSON modules
 import re # Regular expression - https://pythex.org/
 
 #auth = HTTPBasicAuth()
-#from HTTP_basic_Auth import auth
-#auth =auth()
+from HTTP_basic_Auth import auth
+auth =auth()
 #
 global login
 login=False
@@ -86,13 +86,13 @@ users = {
     "vorovik": "python123",
     "susan": "bye"
 }
-
+'''
 @auth.get_password
 def get_pw(username):
     if username in users:
         return users.get(username)
     return None
-
+'''
 @app.route('/')
 def index():
     return render_template('home.html')
