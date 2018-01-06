@@ -23,7 +23,7 @@ import re # Regular expression - https://pythex.org/
 
 #auth = HTTPBasicAuth()
 from HTTP_basic_Auth import auth
-auth =auth()
+#auth =auth()
 #
 global login
 login=False
@@ -81,12 +81,12 @@ def get_price(crypto):
     r = requests.get(url).json()
     price = r[-1]['price_usd']
     return price
-
+'''
 users = {
     "vorovik": "python123",
     "susan": "bye"
 }
-'''
+
 @auth.get_password
 def get_pw(username):
     if username in users:
