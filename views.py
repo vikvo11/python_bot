@@ -1,5 +1,5 @@
 
-def do_login():
+def views():
     @app.route('/login', methods=['POST','GET'])
     def do_admin_login():
         if request.method=='POST':
