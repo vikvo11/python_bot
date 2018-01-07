@@ -255,6 +255,8 @@ def add_article():
         return redirect(url_for('dashbord'))
     return render_template('add_article.html',form=form)
 
+import views
+'''
 @app.route('/login', methods=['POST','GET'])
 def do_admin_login():
     if request.method=='POST':
@@ -265,7 +267,7 @@ def do_admin_login():
            return 'login=True'
         return 'login=False'
     return '<h1>Login</h1>'
-
+'''
 
 
 @app.route('/webhook/',methods=['POST','GET'])
