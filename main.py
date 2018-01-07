@@ -102,6 +102,7 @@ def angularjs():
     #return 'ok'
 
 @app.route('/deployment')
+@is_logged_in
 def deployment():
     return render_template('deployment.html')
 
