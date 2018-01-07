@@ -5,7 +5,7 @@ users = {
     "susan": "bye"
 }
 
-def auth():
+def auths():
     auth = HTTPBasicAuth()
     @auth.get_password
     def get_pw(username):
@@ -13,4 +13,4 @@ def auth():
             return users.get(username)
         return None
     return auth
-#auth =auth()
+auth =auths()
