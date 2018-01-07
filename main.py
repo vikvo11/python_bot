@@ -116,7 +116,7 @@ def angularjs():
 @app.route('/deployment')
 @is_logged_in
 def deployment():
-    return render_template('deployment.html',articles=version)
+    return render_template('deployment.html',articles=base)
 
 
 
