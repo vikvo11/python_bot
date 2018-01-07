@@ -1,11 +1,12 @@
 
+def do_login():
+    def do_admin_login():
+        if request.method=='POST':
+            if request.form['username'] in users and request.form['password'] == users.get(request.form['username']):
+               global login
+               login=True
 
-def do_admin_login():
-    if request.method=='POST':
-        if request.form['username'] in users and request.form['password'] == users.get(request.form['username']):
-           global login
-           login=True
-
-           return 'login=True'
-        return 'login=False'
-    return '<h1>Login</h1>'
+               return 'login=True'
+            return 'login=False'
+        return '<h1>Login</h1>'
+    return 'ok'
