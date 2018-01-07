@@ -1,13 +1,13 @@
 
 #IMPORT MODULES
 from misck import token,chat_id_old # Misck.py - config for telegram_bot
-#<Start -Flask modules:>
+    #<Start -Flask modules:>
 from flask import jsonify #For response in /webhook
 from flask_sslify import SSLify #For use HTTPS
 from flask import Flask, flash, redirect, render_template, request, session, abort,url_for,logging #For work with HTTP and templates
 from flask_mysqldb import MySQL #For connect to MySQL DB
 from HTTP_basic_Auth import auth #For HTTP basic auth
-#<End -Flask modules>
+    #<End -Flask modules>
 from wtforms import Form, StringField, TextAreaField, PasswordField, validators  # Forms for create HTML fields
 from passlib.hash import sha256_crypt # For Password cashing
 from functools import wraps # For lock access
@@ -17,21 +17,19 @@ import json # JSON modules
 import re # Regular expression - https://pythex.org/
 #import modules
 
+    #<Start -Declare> :
 global last_msg
 last_msg=''
 #Articles = Articles()
 #https://api.telegram.org/bot521265983:AAFUSq8QQzLUURwmCgXeBCjhRThRvf9YVM0/setWebhook?url=https://vorovik.pythonanywhere.com/
-
+URL='https://api.telegram.org/bot{}/'.format(token)
+    #<End -Declare> :
 app = Flask(__name__)
-#cache = Cache(app, config={'CACHE_TYPE': 'simple'})
-
-#app.secret_key='morkovka18'
 app.config['SESSION_TYPE'] = 'memcached'
 app.config['SECRET_KEY'] = 'morkovka18'
-#app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 60
 app.debug = True
 sslify=SSLify(app)
-URL='https://api.telegram.org/bot{}/'.format(token)
+
 
 #Config mysql
 app.config['MYSQL_HOST']='vorovik.mysql.pythonanywhere-services.com'
