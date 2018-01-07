@@ -10,11 +10,12 @@
 
 <h1>Deployment</h1>
 <ul class ="list-group">
+  {% articlesa = {{base[1].shema}}%}
 {% for article in articles %}
   <li class="list-group-item">{{article.info}}</li>
-  <li ng-model="articles"><b>
-    {% articles = {{base[1].shema}}%}
-    {{ '{{articles}}' }}
+  <li ng-model="articlesa"><b>
+
+    {{ '{{articlesa}}' }}
   </b></li>
   <form method='POST' action="">
     <p><input type="Submit" class="btn btn-primary" value="Update info"></p>
