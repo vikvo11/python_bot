@@ -255,7 +255,7 @@ def add_article():
         return redirect(url_for('dashbord'))
     return render_template('add_article.html',form=form)
 
-import views
+from views import @app.route
 '''
 @app.route('/login', methods=['POST','GET'])
 def do_admin_login():
