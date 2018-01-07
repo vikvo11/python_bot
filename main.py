@@ -239,7 +239,7 @@ def dashbord():
 
 
 
-from views import views
+from views import views,views1
 
 #Add_articles
 #@app.route('/login', methods=['POST','GET'])

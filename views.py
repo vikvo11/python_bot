@@ -11,6 +11,10 @@ def views():
                return 'login=True'
             return 'login=False'
         return '<h1>Login</h1>'
+    #Return
+    return
+
+def views1():
     #Add_articles
     @app.route('/add_article', methods=['GET','POST'])
     @is_logged_in
@@ -30,5 +34,4 @@ def views():
             flash('You are now added a new one article','success')
             return redirect(url_for('dashbord'))
         return render_template('add_article.html',form=form)
-    #Return
     return
