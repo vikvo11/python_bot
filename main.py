@@ -19,6 +19,8 @@ import re # Regular expression - https://pythex.org/
 from version import base
 
     #<Start -Declare> :
+global kk
+kk=0
 global last_msg
 last_msg=''
 #Articles = Articles()
@@ -125,6 +127,8 @@ def deployment():
             base[k].shema=base[k].shema+'1'
             k=k+1
         flash(base[1].shema,'success')
+        global kk
+        kk=1
         return render_template('deployment.html',articles=base)
 
     return render_template('deployment.html',articles=base)
@@ -301,9 +305,12 @@ def tes():
     return r
 
 def main():
-    for number in range(150):
-    base[1].shema=str(number)
-    pass
+    global kk
+    if kk==1:
+        for number in range(150):
+        base[1].shema=str(number)
+    kk=0
+    #pass
 
 
 if __name__ =='__main__':
