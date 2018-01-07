@@ -22,7 +22,7 @@ lastCD('STG_OWNER')
 #CAR_OWNER=lastCD('STG_OWNER')
 
 
-
+'''
 k=0
 for i in base:
     #print(i.info)
@@ -33,3 +33,4 @@ for i in base:
 #print(base[1].shema)
 for i in base:
     print(i.shema)
+'''
