@@ -102,7 +102,7 @@ def angularjs():
     #return 'ok'
 
 @app.route('/deployment')
-def angularjs():
+def deployment():
     return render_template('deployment.html')
 
 
