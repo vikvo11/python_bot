@@ -125,7 +125,7 @@ def deployment():
             base[k].shema=base[k].shema+'1'
             k=k+1
         flash(base[1].shema,'success')
-        return 'ok'
+        return jsonify(request.get)
 
     return render_template('deployment.html',articles=base)
 
