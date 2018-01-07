@@ -12,7 +12,7 @@
 <ul class ="list-group">
 {% for article in articles %}
   <li class="list-group-item">{{article.info}}</li>
-  <li ng-model="article.shema"><b>{{article.shema}}</b></li>
+  <li><b>{{article.shema}}</b></li>
   <form method='POST' action="">
     <p><input type="Submit" class="btn btn-primary" value="Update info"></p>
     </form>
