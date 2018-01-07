@@ -12,9 +12,9 @@
 <ul class ="list-group">
 {% for article in articles %}
   <li class="list-group-item">{{article.info}}</li>
-  <li ng-model="article.shema"><b>
-    {% article.shema = base[1].shema%}
-    {{ '{{article.shema}}' }}
+  <li ng-model="articles"><b>
+    {% articles = {{base[1].shema}}%}
+    {{ '{{articles}}' }}
   </b></li>
   <form method='POST' action="">
     <p><input type="Submit" class="btn btn-primary" value="Update info"></p>
