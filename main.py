@@ -70,6 +70,17 @@ def get_price(crypto):
     price = r[-1]['price_usd']
     return price
 
+#Check if user logged in
+def is_logged_in(f):
+    @wraps(f)
+    def wrap(*args,**kwargs):
+        if 'logged_in' in session:
+            return f(*args,**kwargs)
+        else:
+            flash('Unauthorized, Please login', 'danger')
+            return redirect(url_for('login'))
+    return wrap
+
 @app.route('/')
 def index():
     return render_template('home.html')
@@ -102,7 +113,7 @@ def angularjs():
     #return 'ok'
 
 @app.route('/deployment')
-#@is_logged_in
+@is_logged_in
 def deployment():
     return render_template('deployment.html')
 
@@ -203,16 +214,7 @@ def login():
 
     return render_template('login.html')
 
-#Check if user logged in
-def is_logged_in(f):
-    @wraps(f)
-    def wrap(*args,**kwargs):
-        if 'logged_in' in session:
-            return f(*args,**kwargs)
-        else:
-            flash('Unauthorized, Please login', 'danger')
-            return redirect(url_for('login'))
-    return wrap
+
 
 #Logout
 @app.route('/logout')
