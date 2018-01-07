@@ -122,6 +122,7 @@ def deployment():
             #print(i.info)
             base[k].shema=base[k].shema+'1'
             k=k+1
+            flash(base[k].shema,'success')
 
     return render_template('deployment.html',articles=base)
 

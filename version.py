@@ -21,12 +21,15 @@ lastCD('STG_OWNER')
 #CRDS_OWNER=lastCD('CRDS_OWNER')
 #CAR_OWNER=lastCD('STG_OWNER')
 
-for i in base:
-    print(i.info)
+
 
 k=0
 for i in base:
     #print(i.info)
     #base[i].shema=base[i].shema+1
+    base[k].shema=base[k].shema+'1123'
     print(base[k].shema)
     k=k+1
+#print(base[1].shema)
+for i in base:
+    print(i.shema)
