@@ -308,7 +308,7 @@ def main():
     global kk
     if kk==1:
         for number in range(150):
-        #base[1].shema=str(number)
+            base[1].shema=str(number)
     kk=0
     #pass
 
