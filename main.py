@@ -117,9 +117,11 @@ def angularjs():
 @is_logged_in
 def deployment():
     if request.method =='POST':
+        k=0
         for i in base:
             #print(i.info)
-            i.shema=i.shema+1
+            base[k].shema=base[k].shema+'1'
+            k=k+1
 
     return render_template('deployment.html',articles=base)
 

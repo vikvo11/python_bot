@@ -23,3 +23,10 @@ lastCD('STG_OWNER')
 
 for i in base:
     print(i.info)
+
+k=0
+for i in base:
+    #print(i.info)
+    #base[i].shema=base[i].shema+1
+    print(base[k].shema)
+    k=k+1
