@@ -98,7 +98,8 @@ def articles():
 
 @app.route('/angularjs')
 def angularjs():
-    return render_template('angularjs.html')
+    #return render_template('angularjs.html')
+    return 'ok'
 
 
 #Single articl
