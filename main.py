@@ -101,6 +101,11 @@ def angularjs():
     return render_template('angularjs.html')
     #return 'ok'
 
+@app.route('/deployment')
+def angularjs():
+    return render_template('deployment.html')
+
+
 
 #Single articl
 @app.route('/article/<string:id>/')
