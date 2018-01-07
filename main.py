@@ -1,7 +1,7 @@
 
 #IMPORT MODULES
 
-from misck import token,chat_id_old # Misck.py - config for telegram_bot
+#from misck import token,chat_id_old # Misck.py - config for telegram_bot
 
 #<Start -Flask modules:>
 from flask import jsonify #For response in /webhook
