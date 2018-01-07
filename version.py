@@ -34,3 +34,5 @@ for i in base:
 for i in base:
     print(i.shema)
 '''
+base[1].shema=str(5)
+print (base[1].shema)
