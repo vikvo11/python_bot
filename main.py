@@ -98,11 +98,8 @@ def articles():
 
 @app.route('/angularjs')
 def angularjs():
-    return render_template('angularjs.html',articles=Articles)
+    return render_template('angularjs.html')
 
-@app.route('/ladymarlene')
-def ladymarlene():
-    return render_template('ladymarlene/ladymarlene.html',articles=Articles)
 
 #Single articl
 @app.route('/article/<string:id>/')
@@ -233,9 +230,6 @@ def dashbord():
         return render_template('dashbord.html', msg=msg)
     # Close connection
     cur.close()
-
-
-from views import views,views1
 
 #Add_articles
 @app.route('/add_article', methods=['GET','POST'])
