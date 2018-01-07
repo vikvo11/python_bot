@@ -15,7 +15,7 @@ from functools import wraps # For lock access
 import requests # For HTTP requests
 import json # JSON modules
 import re # Regular expression - https://pythex.org/
-#import modules
+
 
     #<Start -Declare> :
 global last_msg
@@ -69,18 +69,7 @@ def get_price(crypto):
     r = requests.get(url).json()
     price = r[-1]['price_usd']
     return price
-'''
-users = {
-    "vorovik": "python123",
-    "susan": "bye"
-}
 
-@auth.get_password
-def get_pw(username):
-    if username in users:
-        return users.get(username)
-    return None
-'''
 @app.route('/')
 def index():
     return render_template('home.html')
@@ -100,9 +89,7 @@ def articles():
     articles = cur.fetchall()
 
     if result > 0:
-        #return 'ok'
         return render_template('articles.html', articles=articles)
-        #return render_template('dashboard.html', articles=articles)
     else:
         msg = 'No Articles Found'
         return render_template('articles.html', msg=msg)
@@ -114,7 +101,6 @@ def angularjs():
     return render_template('angularjs.html',articles=Articles)
 
 @app.route('/ladymarlene')
-#@cache.cached(60)
 def ladymarlene():
     return render_template('ladymarlene/ladymarlene.html',articles=Articles)
 
@@ -171,6 +157,7 @@ def register():
         return redirect(url_for('login'))
         #return 'ok'
     return render_template('register.html', form=form)
+
 #User Login
 @app.route('/login',methods=['GET','POST'])
 def login():
@@ -193,25 +180,17 @@ def login():
             #Compare Passwords
             if sha256_crypt.verify(password_candidate,password):
                 #app.logger.info('PASSWORD MATCHED')
-
                 #Passed
                 session['logged_in']= True
                 session['username'] = username
-
                 flash('You are now logged in','success')
-                #return render_template('dashbord.html',msg=msg)
                 return redirect(url_for('dashbord'))
-                #flash('PASSWORD MATCHED!','success')
             else:
-                #app.logger.info('PASSWORD NOT MATCHED')
-                #flash('PASSWORD NOT MATCHED!','danger')
                 error='Invalid login'
                 return render_template('login.html',error=error)
             #Closed connection
             cur.close()
         else:
-            #app.logger.info('NO USER')
-            #flash('NO USER!','danger')
             error='Username not found'
             return render_template('login.html',error=error)
 
@@ -244,16 +223,11 @@ def logout():
 def dashbord():
     # Create cursor
     cur = mysql.connection.cursor()
-
     # Get articles
     result = cur.execute("SELECT * FROM articles")
-
     articles = cur.fetchall()
-
     if result > 0:
-        #return 'ok'
         return render_template('dashbord.html', articles=articles)
-        #return render_template('dashboard.html', articles=articles)
     else:
         msg = 'No Articles Found'
         return render_template('dashbord.html', msg=msg)
@@ -278,9 +252,7 @@ def add_article():
         #Close connection
         cur.close()
         flash('You are now added a new one article','success')
-
         return redirect(url_for('dashbord'))
-
     return render_template('add_article.html',form=form)
 
 @app.route('/login', methods=['POST','GET'])
@@ -324,13 +296,8 @@ def tes():
 
 def main():
     pass
-    #print ('hi')
-
-
 
 
 if __name__ =='__main__':
-    #app.secret_key='morkovka18'
-    #app.secret_key='morkovka18'
     main()
     #app.run('0.0.0.0',port=5000)
