@@ -125,7 +125,7 @@ def deployment():
             base[k].shema=base[k].shema+'1'
             k=k+1
         flash(base[1].shema,'success')
-        return jsonify(request.get)
+        return render_template('deployment.html',articles=base)
 
     return render_template('deployment.html',articles=base)
 
@@ -301,6 +301,8 @@ def tes():
     return r
 
 def main():
+    for number in range(150):
+    base[1].shema=str(number)
     pass
 
 
