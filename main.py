@@ -16,7 +16,7 @@ import requests # For HTTP requests
 import json # JSON modules
 import re # Regular expression - https://pythex.org/
 
-from version import version
+from version import base
 
     #<Start -Declare> :
 global last_msg
