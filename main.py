@@ -257,8 +257,8 @@ def add_article():
 
 from views import do_login
 
-@app.route('/login', methods=['POST','GET'])
-do_login()
+#@app.route('/login', methods=['POST','GET'])
+#do_login()
 '''
 @app.route('/login', methods=['POST','GET'])
 def do_admin_login():
