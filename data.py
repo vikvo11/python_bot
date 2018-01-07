@@ -1,27 +1,23 @@
-def Articles():
-    articles = [
-
+def Version():
+    version = [
         {
             'id': 1,
-            'title': 'Title of article',
-            'body': 'Body of article',
-            'author': 'Brad Traversy',
+            'CAR_OWNER': 'CD21.1',
+            'CRDS_OWNER': 'CD21.1',
+            'STG_OWNER': 'CD21.1',
+            'Instanse': 'PROD',
+            'author': 'vorovik',
             'create_date': '03-01-2017'
+
         },
         {
             'id': 2,
-            'title': 'Title of article 2',
-            'body': 'Body of article 2',
-            'author': 'Brad TraA',
-            'create_date': '03-01-2017'
-        },
-        {
-            'id': 3,
-            'title': 'Title of article 3',
-            'body': 'Body of article 3',
-            'author': 'Jems Braorsy',
+            'CAR_OWNER': 'CD20.1',
+            'CRDS_OWNER': 'CD20.1',
+            'STG_OWNER': 'CD20.1',
+            'Instanse': 'UAT',
+            'author': 'vorovik',
             'create_date': '03-01-2017'
         }
-
     ]
-    return articles
+    return version
