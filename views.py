@@ -10,4 +10,4 @@ def views():
                return 'login=True'
             return 'login=False'
         return '<h1>Login</h1>'
-    return 'ok'
+    return 
