@@ -12,7 +12,7 @@
 <ul class ="list-group">
 {% for article in articles %}
   <li class="list-group-item">{{article.info}}</li>
-  <li><b>{{article.shema}}</b></li>
+  <li ng-model="article.shema"><b>{{article.shema}}</b></li>
 
 {% endfor %}
 </ul>
