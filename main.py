@@ -113,9 +113,14 @@ def angularjs():
     return render_template('angularjs.html')
     #return 'ok'
 
-@app.route('/deployment')
+@app.route('/deployment',methods=['GET','POST'])
 @is_logged_in
 def deployment():
+    if request.method =='POST':
+        for i in base:
+            #print(i.info)
+            i.shema=i.shema+1
+
     return render_template('deployment.html',articles=base)
 
 
