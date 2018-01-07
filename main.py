@@ -118,13 +118,14 @@ def angularjs():
 def deployment():
     if request.method =='POST':
 
+
         k=0
         for i in base:
             #print(i.info)
             base[k].shema=base[k].shema+'1'
             k=k+1
         flash(base[1].shema,'success')
-        #return render_template('deployment.html',articles=base)
+        return 'ok'
 
     return render_template('deployment.html',articles=base)
 
