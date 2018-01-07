@@ -16,6 +16,7 @@ import requests # For HTTP requests
 import json # JSON modules
 import re # Regular expression - https://pythex.org/
 
+from version import version
 
     #<Start -Declare> :
 global last_msg
@@ -115,7 +116,7 @@ def angularjs():
 @app.route('/deployment')
 @is_logged_in
 def deployment():
-    return render_template('deployment.html')
+    return render_template('deployment.html',articles=version)
 
 
 

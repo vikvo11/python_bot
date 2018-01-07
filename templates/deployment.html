@@ -8,4 +8,11 @@
   <h1>Hello {{ '{{yourName}}' }}</h1>
 </div>
 
+<h1>Deployment</h1>
+<ul class ="list-group">
+{% for article in articles %}
+  <li class="list-group-item"><a href="article/{{article.id}}">  {{article.info}}</a></li>
+{% endfor %}
+</ul>
+
 {% endblock %}
