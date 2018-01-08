@@ -180,7 +180,7 @@ def article1():
         ssh_username='vorovik', ssh_password='0Rapid369',
         remote_bind_address=('vorovik.mysql.pythonanywhere-services.com', 3306)
     ) as tunnel:
-        cur = mysql.connection.cursor()
+        cur = mysql.connection.cursor() 
 result = cur.execute("SELECT * FROM articles WHERE id=1")
 article = cur.fetchone()
     '''
