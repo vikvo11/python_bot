@@ -43,7 +43,7 @@ sslify=SSLify(app)
 socketio = SocketIO(app, async_mode=async_mode)
 thread = None
 thread_lock = Lock()
-#socketio.run(app, host='0.0.0.0', port=5000, debug=True)
+#
 
 #Config mysql
 app.config['MYSQL_HOST']='vorovik.mysql.pythonanywhere-services.com'
@@ -421,6 +421,6 @@ if __name__ =='__main__':
     #socketio.run(app)
     main()
     #app.run('0.0.0.0',port=5000)
-    #socketio.run(app, debug=True)
-
+    socketio.run(app, debug=True)
+#socketio.run(app, host='0.0.0.0', port=5000, debug=True)
     #app.run()
