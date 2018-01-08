@@ -310,7 +310,7 @@ def main():
         for number in range(150):
             base[1].shema=str(number)
     kk=0
-    #pass
+    pass
 
 
 if __name__ =='__main__':
