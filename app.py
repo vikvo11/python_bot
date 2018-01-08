@@ -313,10 +313,10 @@ def webhook():
         if re.search(pattern,text):
             price = get_price(parc_text(text))
             send_message(chat_id,price)
+            socketio.emit('my_response', {'data': text, 'count': 5}, namespace='/test')
 
         global last_msg
         last_msg=json.dumps(r,ensure_ascii=False)
-		socketio.emit('my_response', {'data': text, 'count': 5}, namespace='/test')
 		#socketio.emit('my_response', {'data': 'Server generated event', 'count': 5}, namespace='/test')
 
         return jsonify(r)
@@ -420,7 +420,7 @@ def test_disconnect():
 #-***************
 
 if __name__ =='__main__':
-    #socketio.run(app)   
+    #socketio.run(app)
     main()
     #app.run('0.0.0.0',port=5000)
     #socketio.run(app, debug=True)
