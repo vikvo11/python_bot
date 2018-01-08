@@ -16,7 +16,7 @@ import requests # For HTTP requests
 import json # JSON modules
 import re # Regular expression - https://pythex.org/
 
-import mysql.connector
+#import mysql.connector
 import sshtunnel
 
 sshtunnel.SSH_TIMEOUT = 5.0
@@ -192,7 +192,7 @@ def article1():
         result = cur.execute("SELECT * FROM articles WHERE id=1")
         article = cur.fetchone()
         connection.close()
-            
+
     return render_template('article.html',article=article)
 
 
