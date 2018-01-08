@@ -142,7 +142,7 @@ def angularjs():
     #return 'ok'
 
 @app.route('/deployment',methods=['GET','POST'])
-@is_logged_in
+#@is_logged_in
 def deployment():
     if request.method =='POST':
 
