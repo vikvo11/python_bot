@@ -16,6 +16,26 @@ import requests # For HTTP requests
 import json # JSON modules
 import re # Regular expression - https://pythex.org/
 
+import mysql.connector
+import sshtunnel
+
+sshtunnel.SSH_TIMEOUT = 5.0
+sshtunnel.TUNNEL_TIMEOUT = 5.0
+
+'''
+with sshtunnel.SSHTunnelForwarder(
+    ('ssh.pythonanywhere.com'),
+    ssh_username='vorovik', ssh_password='0Rapid369',
+    remote_bind_address=('vorovik.mysql.pythonanywhere-services.com', 3306)
+) as tunnel:
+    connection = mysql.connector.connect(
+        user='vorovik', password='cb.,fq12-',
+        host='0.0.0.0', port=tunnel.local_bind_port,
+        database='vorovik$vorovikapp',
+    )
+    # Do stuff
+    connection.close()
+'''
 from version import base
 #from flask_socketio import SocketIO, emit
 
@@ -45,6 +65,9 @@ app.config['MYSQL_DB']='vorovik$vorovikapp'
 app.config['MYSQL_CURSORCLASS']='DictCursor'
 #init MySQL
 mysql=MySQL(app)
+'''
+
+'''
 
 def write_json(data,filename='answer.json'):
     with open(filename,'w') as f:
@@ -148,6 +171,28 @@ def article(id):
     result = cur.execute("SELECT * FROM articles WHERE id=%s",[id])
 
     article = cur.fetchone()
+    return render_template('article.html',article=article)
+#Single articl-test
+@app.route('/article1/')
+def article1():
+    with sshtunnel.SSHTunnelForwarder(
+        ('ssh.pythonanywhere.com'),
+        ssh_username='vorovik', ssh_password='0Rapid369',
+        remote_bind_address=('vorovik.mysql.pythonanywhere-services.com', 3306)
+    ) as tunnel:
+        connection = mysql.connector.connect(
+            user='vorovik', password='cb.,fq12-',
+            host='0.0.0.0', port=tunnel.local_bind_port,
+            database='vorovik$vorovikapp',
+        )
+        # Do stuff
+        # Create cursor
+        cur = mysql.connection.cursor()
+        # Get articl
+        result = cur.execute("SELECT * FROM articles WHERE id=1")
+        article = cur.fetchone()
+        connection.close()
+            
     return render_template('article.html',article=article)
 
 
