@@ -13,8 +13,8 @@
 {% for article in articles %}
   <li class="list-group-item">{{article.info}}</li>
   <li ng-model="articlesa" articlesa={{article.info}}><b>
-
-    {{ '{{articlesa}}' }}
+    articlesa={{article.info}}
+  <h1>Hello  {{ '{{articlesa}}' }} </h1>
   </b></li>
   <form method='POST' action="">
     <p><input type="Submit" class="btn btn-primary" value="Update info"></p>
