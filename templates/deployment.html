@@ -21,10 +21,10 @@
 
 {% endfor %}
 
+
+</ul>
 <div ng-app="myApp" ng-controller='MyCtrl'>
   <input type="text" ng-model="name" ng-change="inc()" ng-init="count=0;"><br>
-  number of times input changed: {{count}}
+  number of times input changed: {{' {{count}} '}}
 </div>
-</ul>
-
 {% endblock %}
