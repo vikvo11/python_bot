@@ -316,9 +316,7 @@ def webhook():
 
         global last_msg
         last_msg=json.dumps(r,ensure_ascii=False)
-		socketio.emit('my_response',
-                      {'data': 'Server generated event', 'count': 5},
-                      namespace='/test')
+		socketio.emit('my_response', {'data': 'Server generated event', 'count': 5}, namespace='/test')
 
         return jsonify(r)
     return '<h1>Hello bot</h1>'
