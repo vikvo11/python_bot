@@ -23,8 +23,9 @@
 
 
 </ul>
-<div ng-app="myApp" ng-controller='MyCtrl'>
+<div ng-controller='MyCtrl'>
   <input type="text" ng-model="name" ng-change="inc()" ng-init="count=0;"><br>
-  number of times input changed: {{ '{{name}}' }}
+  number of times input changed: {{ '{{count}}' }}
+    <h1>Hello {{ '{{yourName}}' }}</h1>
 </div>
 {% endblock %}
