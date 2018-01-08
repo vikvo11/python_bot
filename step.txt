@@ -52,3 +52,9 @@
 
         )
     '''
+wget https://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm
+    sudo rpm -ivh mysql57-community-release-el7-9.noarch.rpm
+  sudo yum install gcc
+  sudo yum install python-devel
+  sudo yum install mysql-devel
+sudo pip install flask-mysqldb
