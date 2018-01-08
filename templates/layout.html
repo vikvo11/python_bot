@@ -23,5 +23,13 @@
       <script type="text/javascript">
         CKEDITOR.replace('editor')
       </script>
+      <script>
+var module = angular.module('myApp', []);
+module.controller('MyCtrl', function($scope) {
+  $scope.inc = function() {
+    $scope.count++;
+  }
+});
+</script>
   </body>
 </html>
