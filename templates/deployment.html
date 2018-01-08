@@ -13,28 +13,11 @@
 {% for article in articles %}
   <li class="list-group-item">{{article.info}}</li>
   <li><b>
-
   </b></li>
-  <form method='POST' action="">
-    <p><input type="Submit" class="btn btn-primary" value="Update info"></p>
-    </form>
-
 {% endfor %}
 
-
-<div ng-app="myApp" ng-controller='MyCtrl'>
-  <input type="text" ng-model="name" ng-change="inc()" ng-init="count=0;"><br>
-  number of times input changed: {{count}}
-</div>
-
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-<script>
-var module = angular.module('myApp', []);
-module.controller('MyCtrl', function($scope) {
-  $scope.inc = function() {
-    $scope.count++;
-  }
-});
-</script>
+<form method='POST' action="">
+  <p><input type="Submit" class="btn btn-primary" value="Update info"></p>
+  </form>
 
 {% endblock %}
