@@ -183,7 +183,7 @@ def article1():
         cur = mysql.connection.cursor()
 
         result = cur.execute("SELECT * FROM articles WHERE id=1")
-        #article = cur.fetchone()
+        article = cur.fetchone()
     return render_template('article.html',article=article)
 
 
