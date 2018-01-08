@@ -18,7 +18,7 @@ import re # Regular expression - https://pythex.org/
 
 from version import base
 #from flask_socketio import SocketIO, emit
- 
+
     #<Start -Declare> :
 global kk
 kk=0
@@ -320,3 +320,4 @@ if __name__ =='__main__':
     #socketio.run(app)
     main()
     #app.run('0.0.0.0',port=5000)
+    app.run()
