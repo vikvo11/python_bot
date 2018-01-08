@@ -12,7 +12,7 @@
 <ul class ="list-group">
 {% for article in articles %}
   <li class="list-group-item">{{article.info}}</li>
-  <li ng-model="article.info"><b>
+  <li ng-model="article.info" article.info={{article.info}}><b>
 
     {{ '{{article.info}}' }}
   </b></li>
