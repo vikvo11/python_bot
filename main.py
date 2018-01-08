@@ -317,7 +317,7 @@ def main():
 '''
 '''
 @app.route('/123')
-def index():
+def index123():
     return render_template('index.html')
 
 @socketio.on('my event', namespace='/test')
