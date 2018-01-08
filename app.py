@@ -181,7 +181,8 @@ def article1():
         remote_bind_address=('vorovik.mysql.pythonanywhere-services.com', 3306)
     ) as tunnel:
         cur = mysql.connection.cursor()
-
+result = cur.execute("SELECT * FROM articles WHERE id=1")
+article = cur.fetchone()
     '''
         connection = mysql.connector.connect(
             user='vorovik', password='cb.,fq12-',
@@ -194,9 +195,8 @@ def article1():
         # Create cursor
         #cur = mysql.connection.cursor()
         # Get articl
-            result = cur.execute("SELECT * FROM articles WHERE id=1")
-            article = cur.fetchone()
-            connection.close()
+
+        #connection.close()
 
     return render_template('article.html',article=article)
 
