@@ -171,21 +171,8 @@ def article(id):
     result = cur.execute("SELECT * FROM articles WHERE id=%s",[id])
 
     article = cur.fetchone()
+    cur.close()
     return render_template('article.html',article=article)
-#Single articl-test
-@app.route('/article1/')
-def article1():
-    with sshtunnel.SSHTunnelForwarder(
-        ('ssh.pythonanywhere.com'),
-        ssh_username='vorovik', ssh_password='0Rapid369',
-        remote_bind_address=('vorovik.mysql.pythonanywhere-services.com', 3306)
-    ) as tunnel:
-        cur = mysql.connection.cursor()
-
-        result = cur.execute("SELECT * FROM articles WHERE id=1")
-        article = cur.fetchone()
-    return render_template('article.html',article=article)
-
 
 #RegisterFormClass
 class RegisterForm(Form):
