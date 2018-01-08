@@ -316,7 +316,7 @@ def main():
 
 '''
 '''
-@app.route('/')
+@app.route('/123')
 def index():
     return render_template('index.html')
 
