@@ -33,7 +33,7 @@ app.config['SESSION_TYPE'] = 'memcached'
 app.config['SECRET_KEY'] = 'morkovka18'
 app.debug = True
 sslify=SSLify(app)
-socketio = SocketIO(app)
+#socketio = SocketIO(app)
 #socketio.run(app)
 
 
