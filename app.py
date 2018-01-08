@@ -60,13 +60,12 @@ def background_thread():
     """Example of how to send server generated events to clients."""
     count = 0
     while True:
-        #socketio.sleep(10)
+        socketio.sleep(10)
         count += 1
-        '''
         socketio.emit('my_response',
                       {'data': 'Server generated event', 'count': count},
                       namespace='/test')
-        '''
+
 
 def write_json(data,filename='answer.json'):
     with open(filename,'w') as f:
