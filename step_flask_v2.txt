@@ -7,6 +7,8 @@
 4) deploy next CD and re-deploy current if find errors
 5)  start/stop db jobs+sheduler from UI
 
-additional 
+additional
 status of web-services in UI and start/stop weblogic
 
+-> Flask Socket
+pip install flask-socketio
