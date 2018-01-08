@@ -25,7 +25,7 @@ kk=0
 global last_msg
 last_msg=''
 #Articles = Articles()
-#https://api.telegram.org/bot521265983:AAFUSq8QQzLUURwmCgXeBCjhRThRvf9YVM0/setWebhook?url=https://vorovik.pythonanywhere.com/
+#https://api.telegram.org/bot521265983:AAFUSq8QQzLUURwmCgXeBCjhRThRvf9YVM0/setWebhook?url=https://vorovik.pythonanywhere.com/webhook/
 URL='https://api.telegram.org/bot{}/'.format(token)
     #<End -Declare> :
 app = Flask(__name__)
@@ -320,4 +320,4 @@ if __name__ =='__main__':
     #socketio.run(app)
     main()
     #app.run('0.0.0.0',port=5000)
-    #app.run()
+    app.run()
