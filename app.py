@@ -186,8 +186,9 @@ def article1():
             user='vorovik', password='cb.,fq12-',
             host='0.0.0.0', port=tunnel.local_bind_port,
             database='vorovik$vorovikapp',
-    '''
+
         )
+    '''
         # Do stuff
         # Create cursor
         #cur = mysql.connection.cursor()
